@@ -1,7 +1,7 @@
 'use strict';
 const site=document.body.dataset.site,base='https://console.richrowmusic.com',content=document.querySelector('#content');
 document.querySelector('#year').textContent=new Date().getFullYear();
-const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=String(text).replace(/rich row (?:records|music|store|merch)/gi,'Bombshop Records');if(cls)n.className=cls;return n;};
+const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=String(text).replace(/For booking and collaboration enquiries, (?:reach|contact) Rich Row Music\.?/gi,'For booking and collaboration enquiries, reach Bomb Shop Music.').replace(/rich row (?:records|music|store|merch)/gi,'Bombshop Records');if(cls)n.className=cls;return n;};
 const safe=value=>{try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password?u.href:null;}catch{return null;}};
 function link(url,label){const a=node('a',label,'action');a.href=safe(url)||base;a.rel='noopener noreferrer';a.target='_blank';return a;}
 function block(b){const box=node('div',null,'block');if(b.title)box.append(node('h3',b.title));if(b.body)box.append(node('p',b.body));
