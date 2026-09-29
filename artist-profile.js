@@ -1,3 +1,4 @@
+const year=document.querySelector('#year');if(year)year.textContent=new Date().getFullYear();
 const artists={waynekastro:{name:'Wayne Kastro',url:'https://waynekastro.com'},dracodon17:{name:'Draco Don17',url:'https://dracodon17.com'},goldenrama440:{name:'Golden Rama',url:'https://goldenrama440.com'}};
 const base='https://console.richrowmusic.com';
 const node=(tag,text='',cls='')=>{const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n;};
