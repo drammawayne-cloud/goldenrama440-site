@@ -1,0 +1,100 @@
+/* Artist campaign presentation. Existing services, prices and access stay authoritative. */
+body[data-site=goldenrama440]{--text:var(--ink);--surface:var(--panel);--gold:#735523;--member-accent:#735523}
+:root[data-theme=dark] body[data-site=goldenrama440]{--gold:#e5c58d;--member-accent:#e5c58d}
+body[data-site=goldenrama440] .membership-page{--member-accent:var(--gold);color:var(--ink)}
+body[data-site=goldenrama440] .membership-page h1{max-width:100%;font-size:clamp(42px,8vw,98px);line-height:1;letter-spacing:-.05em}
+body[data-site=goldenrama440] header{position:sticky;top:0;z-index:30;min-height:100px;gap:20px;padding:16px 4%;background:var(--paper);border-color:var(--line)}
+body[data-site=goldenrama440] .brand-logo-slot{display:block;flex:none;width:76px;height:76px;max-width:none}
+body[data-site=goldenrama440] header nav{margin-left:auto}
+body[data-site=goldenrama440] .theme-toggle{min-width:118px;border-color:var(--gold);color:var(--ink);white-space:nowrap}
+body[data-site=goldenrama440] .site-cart{flex:none}
+body[data-site=goldenrama440] main{position:relative}
+.artist-home main{max-width:1600px;padding:0 3%}
+body.artist-home .campaign-hero{min-height:0;height:clamp(500px,48vw,720px);padding:0;margin:12px 0 0;border:0;border-radius:22px;isolation:isolate;background:#15130f;color:#fff8ec}
+.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% center;z-index:-2}
+.campaign-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,11,9,.82),rgba(12,11,9,.44) 45%,transparent 70%);z-index:-1}
+.hero-copy{position:relative;padding:clamp(40px,6vw,96px);width:75%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.hero-copy .eyebrow{font:11px/1.5 Arial,sans-serif;letter-spacing:.2em;color:#ecd9b8;margin:0 0 32px}
+body.artist-home .campaign-hero h1{margin:0;max-width:100%;font-family:Georgia,'Times New Roman',serif;font-size:clamp(72px,9vw,140px);line-height:.9;letter-spacing:-.065em;text-transform:uppercase;font-weight:500;overflow-wrap:normal;color:#fff8ec}
+body.artist-home .campaign-hero h1 span:last-child{color:#e2c18a;font-style:italic}
+.hero-copy #intro{font-size:20px;color:#eee2cf;margin:28px 0;max-width:400px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+body.artist-home .hero-actions .pill{background:#e8c995;color:#211a10;border:1px solid #e8c995;border-radius:32px;min-height:48px;font-weight:600;padding:13px 24px;gap:25px}
+.hero-link{font:13px/1.5 Arial,sans-serif;color:#fff8ec;text-underline-offset:6px}
+.hero-scroll{position:absolute;bottom:28px;right:30px;display:flex;align-items:center;gap:20px;font:10px/1 Arial,sans-serif;letter-spacing:.16em;text-decoration:none;color:#fff8ec}
+.hero-scroll span{font-size:24px}
+.artist-ribbon{display:flex;gap:24px;align-items:center;padding:26px 14px;border-bottom:1px solid var(--line);font:11px/1.5 Arial,sans-serif;letter-spacing:.08em}
+.artist-ribbon>span{margin-right:auto;color:var(--muted);font-size:10px}.artist-ribbon a{text-decoration:none}
+.artist-home #content>section{padding:76px 2%;border-top:0;border-bottom:1px solid var(--line);scroll-margin-top:120px}
+.artist-home .section-head{margin-bottom:34px;align-items:center;gap:16px}
+.artist-home .section-head small{color:var(--gold);letter-spacing:.1em}
+body.artist-home h2{font-size:clamp(36px,5vw,64px);letter-spacing:-.05em;line-height:1.08}
+.artist-home .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}
+body.artist-home .catalog-card{display:flex;flex-direction:column;min-width:0;background:transparent;border:0;border-radius:0;padding:0}
+.artist-home .catalog-card img{display:block;border-radius:14px;aspect-ratio:1;object-fit:cover;background:var(--soft)}
+.artist-home .catalog-card h3{font:500 clamp(20px,2vw,27px)/1.18 Georgia,serif;margin:19px 0 8px}
+.artist-home .catalog-card p{font:12px/1.6 Arial,sans-serif;margin:0 0 12px;color:var(--muted)}
+body.artist-home .catalog-card .action{align-self:flex-start;margin-top:auto;background:transparent;border:0;border-bottom:1px solid var(--gold);border-radius:0;padding:9px 0 7px;min-height:44px;color:var(--ink);font-size:12px}
+.catalog-toolbar{display:flex;align-items:center;gap:20px;justify-content:space-between;flex-wrap:wrap;margin:0 0 28px;font:12px/1.5 Arial,sans-serif}
+.catalog-search{display:flex;align-items:center;gap:12px;color:var(--muted)}
+.catalog-search input{width:min(290px,65vw);padding:13px 16px;border:1px solid var(--line);border-radius:30px;background:var(--panel);color:var(--ink);font:14px Arial,sans-serif;min-height:46px}
+.catalog-search input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.catalog-status{color:var(--muted);margin:0}
+.catalog-more,.album-more{display:block;margin:32px auto 0;padding:13px 24px;min-height:46px;border:1px solid var(--gold);border-radius:28px;background:transparent;color:var(--ink);font:600 13px Arial,sans-serif;cursor:pointer}
+[hidden]{display:none!important}
+.artist-home #videos .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.artist-home #videos .catalog-card iframe{order:-1;margin:0 0 8px;border-radius:14px}
+.album-intro{font:15px/1.7 Arial,sans-serif;color:var(--muted);margin:-12px 0 32px}
+.album-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+.album-item{margin:0;min-width:0}
+.album-open{position:relative;width:100%;padding:0;border:0;display:block;cursor:zoom-in;background:var(--soft);overflow:hidden;border-radius:14px}
+.album-open img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transition:transform .3s ease}
+.album-open:hover img{transform:scale(1.035)}
+.album-open::after{content:"↗";position:absolute;right:14px;bottom:14px;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#171511c9;color:#fff;font:22px Arial,sans-serif}
+.album-item figcaption{padding:15px 2px 0;font:19px/1.3 Georgia,serif;color:var(--ink)}
+.album-item figcaption small{display:block;margin-top:5px;font:11px/1.5 Arial,sans-serif;color:var(--muted)}
+.photo-dialog{max-width:1100px;width:calc(100vw - 32px);max-height:calc(100dvh - 32px);padding:0;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:18px;overflow:auto}
+.photo-dialog::backdrop{background:#000d}
+.photo-dialog-top,.photo-dialog-bottom{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:16px 20px;font:13px Arial,sans-serif}
+.photo-dialog button{min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--ink);font:22px Arial,sans-serif;cursor:pointer}
+.photo-dialog img{display:block;width:100%;max-height:70dvh;object-fit:contain;background:#171512}
+.photo-dialog-bottom>div{display:flex;gap:10px}
+.artist-home #about{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:clamp(30px,6vw,90px);align-items:center}
+.artist-home #about .section-head{grid-column:2}.artist-home #about>.block,.artist-home #about>.artist-story-links{grid-column:2}
+.artist-story-photo{grid-column:1;grid-row:1/5;margin:0;align-self:stretch}
+.artist-story-photo img{width:100%;height:100%;max-height:620px;object-fit:cover;border-radius:16px}
+.artist-story-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px;font:13px Arial,sans-serif;color:var(--gold)}
+.artist-home #booking{margin-top:50px;padding:50px!important;border:1px solid var(--line);border-radius:18px;background:var(--soft)}
+.artist-home #booking .section-head{margin-bottom:20px}
+.artist-home #connect .block{display:inline-block;margin-right:16px}
+.artist-home #connect .action{border-radius:26px;font-size:13px}
+.experience-invite{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:60px 2%}
+.experience-invite article{padding:36px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.experience-invite .eyebrow{color:var(--gold);margin-top:0}
+.experience-invite h2{font-size:38px!important}.experience-invite p{color:var(--muted);font:15px/1.7 Arial,sans-serif}
+.experience-invite .action{border-radius:28px!important;margin-top:8px}
+.radio-lounge{padding:30px 2% 65px;border-top:1px solid var(--line);text-align:center}.radio-lounge h2{font-size:38px!important}.radio-lounge>.eyebrow{display:block;color:var(--gold);margin:20px 0}
+.artist-home footer{padding:48px 5%;position:relative}.artist-home footer>strong{text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:1100px){.artist-home .catalog-grid{gap:42px 32px}.artist-home main{padding:0 4%}}
+@media(max-width:900px){body[data-site=goldenrama440] header{gap:12px}.hero-copy{padding:42px;width:80%}.artist-ribbon{gap:18px}.artist-ribbon>span{display:none}.artist-ribbon a{flex:1;text-align:center}.artist-home .catalog-grid{gap:28px 18px}.album-grid{gap:18px}}
+@media(max-width:750px){body[data-site=goldenrama440] header{padding:10px 5% 12px;flex-direction:row;align-items:center;flex-wrap:wrap;gap:6px 12px;min-height:134px}.brand-logo-slot{width:65px!important;height:65px!important}.theme-toggle{position:static!important;min-width:105px!important;padding:9px 11px!important}.site-cart{position:static!important;margin-left:auto}.artist-home main{padding:0 4%}body[data-site=goldenrama440] header nav.compact-nav{flex-basis:100%;margin:3px 0 0;order:5;padding-top:8px}body.artist-home .campaign-hero{height:630px;margin-top:6px;border-radius:17px}.hero-image{object-position:75% top}.campaign-hero::after{background:linear-gradient(0deg,rgba(10,9,7,.98),rgba(10,9,7,.67) 34%,rgba(10,9,7,.12) 72%)}.hero-copy{justify-content:flex-end;width:100%;padding:30px 26px 62px}.hero-copy .eyebrow{font-size:9px;margin-bottom:18px}body.artist-home .campaign-hero h1{font-size:clamp(60px,15vw,105px);letter-spacing:-.065em;line-height:.9}.hero-copy #intro{font-size:17px;margin:20px 0}.hero-actions{gap:18px}.hero-actions .pill{font-size:12px!important;padding:12px 18px!important;gap:16px!important}.hero-link{font-size:12px}.hero-scroll{bottom:20px;right:24px;font-size:9px}.artist-ribbon{padding:20px 0;gap:10px;font-size:10px;letter-spacing:0}.artist-home #content>section{padding:48px 1%;scroll-margin-top:160px}.artist-home .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 16px}.artist-home .catalog-card h3{font-size:21px}.artist-home .catalog-card img{border-radius:10px}.catalog-toolbar{gap:10px}.catalog-search{width:100%}.catalog-search input{flex:1;width:auto;min-width:0}.artist-home #videos .catalog-grid{grid-template-columns:1fr;gap:32px}.album-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 14px}.album-item figcaption{font-size:18px}.artist-home #about{grid-template-columns:1fr}.artist-story-photo{grid-column:1;grid-row:2;margin-bottom:28px}.artist-home #about .section-head,.artist-home #about>.block,.artist-home #about>.artist-story-links{grid-column:1}.artist-story-photo img{max-height:520px;object-position:center 30%}.artist-home #booking{margin-top:25px;padding:30px!important}.experience-invite{grid-template-columns:1fr;padding:40px 1%}.experience-invite article{padding:28px}.photo-dialog-top,.photo-dialog-bottom{padding:10px 14px;gap:12px}.photo-dialog-bottom{font-size:12px}.photo-dialog img{max-height:65dvh}}
+@media(max-width:360px){body[data-site=goldenrama440] header{column-gap:8px}.brand-logo-slot{width:58px!important}.theme-toggle{min-width:99px!important;font-size:11px}.hero-copy{padding-inline:20px}.hero-actions{gap:13px}.hero-link{font-size:11px}.artist-ribbon{font-size:9px}}
+@media(max-width:750px){.campaign-hero .hero-image{object-position:80% top}}
+@media(prefers-reduced-motion:reduce){.album-open img{transition:none}}
+@media print{.theme-toggle,.photo-dialog,.catalog-toolbar,.catalog-more,.album-more{display:none!important}.artist-home .catalog-card[hidden],.album-item[hidden]{display:block!important}body[data-site=goldenrama440] header{position:static}}
+
+
+/* Golden Rama retains the original Bomb Shop artwork and warm gold identity. */
+body[data-site=goldenrama440] header .brand-logo-slot{width:150px!important;height:75px!important;font-size:0;overflow:visible}
+body[data-site=goldenrama440] header{gap:16px}header .rr-cart-icon{position:relative!important;inset:auto!important;margin-left:0!important}
+body.artist-home .campaign-hero{position:relative;display:block;overflow:hidden}body.artist-home .campaign-hero h1{font-size:clamp(66px,8.3vw,132px);line-height:.9;margin:0;letter-spacing:-.07em}
+body.artist-home .campaign-hero h1>span{display:block;font-size:1em;margin:0;color:#fff8ec;font-style:normal}body.artist-home .campaign-hero h1 em{color:#e5c58d;font-weight:400}body.artist-home .campaign-hero h1 small{display:block;font:700 18px/1.5 system-ui;letter-spacing:.35em;margin-top:18px;color:#e5c58d}
+.hero-copy{width:80%}.hero-copy .eyebrow{margin-bottom:25px}.hero-copy #intro{margin:20px 0 26px}.hero-actions .pill{display:inline-flex;align-items:center;text-decoration:none;font-size:13px}.hero-scroll{z-index:1}
+.artist-home #about>.artist-summary{grid-column:2}.artist-summary{font-size:18px;line-height:1.8;color:var(--copy)}.artist-summary p{margin-top:0}.artist-story-photo{grid-row:1/5}
+.album-item:last-child .album-open img{object-position:75% center}.photo-dialog-bottom{flex-wrap:wrap}.photo-dialog-bottom>div{margin-left:auto}.photo-download{min-height:44px;display:inline-flex;align-items:center}
+body[data-site=goldenrama440] .membership-page{color:var(--ink)}body[data-site=goldenrama440] .membership-page .tier{background:var(--panel)}body[data-site=goldenrama440] .membership-page .tier a,body[data-site=goldenrama440] .member-action{color:var(--ink)}
+.catalog-search input{font-size:16px}.catalog-grid .catalog-card{overflow-wrap:anywhere}.notice{padding:18px;border:1px solid var(--line);border-radius:12px}.notice button{margin:10px}
+html{scroll-padding-top:110px}.artist-home #content>section{scroll-margin-top:0}
+@media(max-width:900px) and (min-width:751px){body[data-site=goldenrama440] header{padding-right:4%;flex-wrap:wrap}.theme-toggle,.site-cart{position:static!important}body[data-site=goldenrama440] header nav{order:5;width:100%;margin:0;justify-content:space-between}}
+@media(max-width:750px){body[data-site=goldenrama440] header .brand-logo-slot{width:126px!important;height:63px!important}.hero-copy{width:100%}.hero-copy .eyebrow{margin-bottom:16px}body.artist-home .campaign-hero h1{font-size:clamp(58px,15vw,100px)}body.artist-home .campaign-hero h1 small{font-size:13px;margin-top:12px}.hero-copy #intro{font-size:16px;margin:14px 0 20px}.hero-image{object-position:80% top}.artist-home #about>.artist-summary{grid-column:1}.artist-story-photo{grid-row:2}.photo-description{flex-basis:100%}html{scroll-padding-top:150px}}
+@media(max-width:360px){body[data-site=goldenrama440] header .brand-logo-slot{width:108px!important;height:54px!important}.theme-toggle{min-width:97px!important}.hero-actions{gap:12px}.hero-link{font-size:11px}}
