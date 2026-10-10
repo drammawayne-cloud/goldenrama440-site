@@ -6,7 +6,7 @@ import {openPhoneStudio,openGuestStudio} from './browser-live.js?v=20261010-cove
 import {botCheck} from './bot-check.js?v=20261010-cover';
 import {openSignIn} from './shared-login.js?v=20261010-final';
 import {el} from './rr-addon-render.js?v=20261010-cover';
-const brands={richrow:['Rich Row Records','https://richrowmusic.com'],waynekastro:['Wayne Kastro','https://waynekastro.com'],dracodon17:['Draco Don17','https://dracodon17.com'],goldenrama440:['Golden Rama','https://goldenrama440.com']};
+const brands={richrow:['Rich Row Records','https://richrowrecords.com'],waynekastro:['Wayne Kastro','https://waynekastro.com'],dracodon17:['Draco Don17','https://dracodon17.com'],goldenrama440:['Golden Rama','https://goldenrama440.com']};
 const q=new URLSearchParams(location.search),site=Object.hasOwn(brands,q.get('site'))?q.get('site'):'richrow',ownerMode=q.get('manage')==='1',admin=false;
 const main=document.querySelector('main'),dialog=document.querySelector('dialog'),notice=document.querySelector('#notice'),nav=document.querySelector('#portal-nav');
 let phoneStudio,pendingGuestInvite=new URLSearchParams(location.hash.slice(1)).get('invite');

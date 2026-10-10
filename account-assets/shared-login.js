@@ -5,8 +5,8 @@ import {waitForVerification} from './auth-verification.js?v=20261010-cover';
 // One accessible sign-in experience for artists, customers, staff and admins.
 // Authentication callbacks MUST resolve only after the real server accepts them.
 export function openSignIn({name='Rich Row',authenticate,signup,recover,resend,onSuccess,admin=false,role='customer',site='richrow'}){
- const origins={richrow:'https://richrowmusic.com',waynekastro:'https://waynekastro.com',dracodon17:'https://dracodon17.com',goldenrama440:'https://goldenrama440.com'};
- if(!admin&&location.hostname==='console.richrowmusic.com'&&origins[site]){location.assign(origins[site]+'/account.html?site='+site+'&role='+(['customer','artist','staff'].includes(role)?role:'customer')+'&signin=1');return;}
+ const origins={richrow:'https://richrowrecords.com',waynekastro:'https://waynekastro.com',dracodon17:'https://dracodon17.com',goldenrama440:'https://goldenrama440.com'};
+ if(!admin&&location.hostname==='console.richrowrecords.com'&&origins[site]){location.assign(origins[site]+'/account.html?site='+site+'&role='+(['customer','artist','staff'].includes(role)?role:'customer')+'&signin=1');return;}
  document.querySelector('dialog[data-shared-login]')?.remove();
  const dialog=document.createElement('dialog');dialog.dataset.sharedLogin='';dialog.dataset.consoleLogin=String(admin);
  Object.assign(dialog.style,{padding:'0',border:'1px solid #59456d',borderRadius:'20px',width:'min(1000px,96vw)',maxWidth:'1000px',maxHeight:'94svh',background:'#101016',color:'#f6f4fa',overflow:'auto'});

@@ -1,6 +1,6 @@
 const year=document.querySelector('#year');if(year)year.textContent=new Date().getFullYear();
 const artists={waynekastro:{name:'Wayne Kastro',url:'https://waynekastro.com'},dracodon17:{name:'Draco Don17',url:'https://dracodon17.com'},goldenrama440:{name:'Golden Rama 440',url:'https://goldenrama440.com'}};
-const base='https://console.richrowmusic.com';
+const base='https://console.richrowrecords.com';
 const node=(tag,text='',cls='')=>{const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n;};
 const safe=value=>{try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password?u.href:null;}catch{return null;}};
 const anchor=(text,url)=>{const a=node('a',text);a.href=url;return a;};
@@ -18,7 +18,7 @@ for(const root of document.querySelectorAll('[data-artist-profile]')){
  const mode=root.dataset.profileView||'summary';const ownSite=document.body.dataset.site===site;
  const bioUrl=ownSite?'biography.html':'artist-biography.html?artist='+site,epkUrl=artist.url+'/epk.html';
  const portrait=photo(null,artist),copy=node('div','','artist-profile-copy');copy.append(node(mode==='summary'?'h2':'h1',artist.name));const desc=node('p','Explore published music, videos and artist updates.','artist-description');copy.append(desc);
- const links=node('nav','','artist-profile-links');links.setAttribute('aria-label',artist.name+' profile links');if(mode==='summary')links.append(anchor('Biography',bioUrl));else links.append(anchor('Explore the music',ownSite?'index.html#music':artist.url+'/#music'),anchor('Booking & press enquiries',ownSite?'contact.html':'https://richrowmusic.com/contact.html'));
+ const links=node('nav','','artist-profile-links');links.setAttribute('aria-label',artist.name+' profile links');if(mode==='summary')links.append(anchor('Biography',bioUrl));else links.append(anchor('Explore the music',ownSite?'index.html#music':artist.url+'/#music'),anchor('Booking & press enquiries',ownSite?'contact.html':'https://richrowrecords.com/contact.html'));
  const columns=node('div','','artist-profile-columns');columns.append(portrait,copy);root.replaceChildren(columns);copy.append(links);
  async function load(){try{
  const [bio,epk]=await Promise.all([published(site+'-biography'),published(site+'-epk')]);

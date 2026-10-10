@@ -1,5 +1,5 @@
 'use strict';
-const site=document.body.dataset.site,base='https://console.richrowmusic.com',content=document.querySelector('#content');
+const site=document.body.dataset.site,base='https://console.richrowrecords.com',content=document.querySelector('#content');
 document.querySelector('#year').textContent=new Date().getFullYear();
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=String(text).replace(/For booking and collaboration enquiries, (?:reach|contact) Rich Row Music\.?/gi,'For booking and collaboration enquiries, reach Bomb Shop Music.').replace(/rich row (?:records|music|store|merch)/gi,'Bombshop Records');if(cls)n.className=cls;return n;};
 const safe=value=>{try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password?u.href:null;}catch{return null;}};

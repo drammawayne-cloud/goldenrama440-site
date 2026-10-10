@@ -1,15 +1,15 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
-import {mountLiveGifts} from './live-gifts.js?v=20261010-final';
-import {liveShareButton} from './live-share.js?v=20261010-cover';
-import {createCamera,createLiveMixer} from './live-camera.js?v=20261010-cover';
-import {createMediaSender} from './live-media-sender.js?v=20261010-cover';
-import {openHostGuests,openGuestConnection} from './live-guests.js?v=20261010-cover';
+import {createLivePoster} from './live-poster.js?v=20261010-records';
+import {mountLiveGifts} from './live-gifts.js?v=20261010-gifts';
+import {liveShareButton} from './live-share.js?v=20261010-share';
+import {createCamera,createLiveMixer} from './live-camera.js?v=20261010-camera';
+import {createMediaSender} from './live-media-sender.js?v=20261010-stability';
+import {openHostGuests,openGuestConnection} from './live-guests.js?v=20261010-stability';
 
 function element(tag,text,className){const node=document.createElement(tag);if(text)node.textContent=text;if(className)node.className=className;return node;}
 function button(text,action,className=''){const b=element('button',text,className);b.type='button';b.onclick=action;return b;}
 function select(label,choices){const wrap=element('label',label),input=element('select');for(const[value,title]of choices){const o=element('option',title);o.value=value;input.append(o);}wrap.append(input);return {wrap,input};}
 function setup({title,guest=false}){
- if(!document.querySelector('link[data-live-studio]')){const css=element('link');css.rel='stylesheet';css.href='/account-assets/live-studio.css?v=20261010-cover';css.dataset.liveStudio='1';document.head.append(css);}
+ if(!document.querySelector('link[data-live-studio]')){const css=element('link');css.rel='stylesheet';css.href='/assets/live-studio.css?v=20261010-stability';css.dataset.liveStudio='1';document.head.append(css);}
  const dialog=element('dialog',null,'rr-live'),header=element('header',null,'rr-live-header'),heading=element('h2',guest?'Join the live':'Your live studio'),close=button('✕',null,'rr-live-close');close.setAttribute('aria-label','Close studio');header.append(heading,close);
  const stage=element('div',null,'rr-live-stage'),preview=element('video');preview.muted=true;preview.autoplay=true;preview.playsInline=true;preview.setAttribute('aria-label','Live preview');
  const placeholder=element('div','Press the red button. Allow your camera and microphone when asked.','rr-live-placeholder'),badge=element('span','PREVIEW','rr-live-badge'),clock=element('span','', 'rr-live-clock');stage.append(preview,placeholder,badge,clock);
@@ -27,7 +27,8 @@ function time(seconds){return [Math.floor(seconds/3600),Math.floor(seconds/60)%6
 
 export function openPhoneStudio({record=null,site=record?.site,config={},api,onClose=()=>{}}){
  const ui=setup({title:record?.data?.title}),notice=text=>ui.status.textContent=text;
- const share=liveShareButton({host:true,getRecord:()=>api('watch?id='+record.id),onNotice:notice});share.disabled=true;const pause=button('Pause live',()=>void stop('Live paused. Reopen this session to reconnect; passes keep the original seven-hour deadline.',false));pause.disabled=true;ui.dialog.querySelector('.rr-live-tools').append(share,pause);
+ const publishPoster=createLivePoster({video:ui.preview,api,getRecord:()=>record});
+ const share=liveShareButton({host:true,getRecord:async()=>{await publishPoster(true);return api('watch?id='+record.id);},onNotice:notice});share.disabled=true;const pause=button('Pause live',()=>void stop('Live paused. Reopen this session to reconnect; passes keep the original seven-hour deadline.',false));pause.disabled=true;ui.dialog.querySelector('.rr-live-tools').append(share,pause);
  let eventDeadline=0;let giftsUI,camera,mixer,group,groupPromise,recorder,socket,sender,timer,flushTimer,wakeLock,closed=false,starting=false,started=false,confirmed=false,ending=false,ended=false,ready=false,startedAt=0;
  let creatingRecord;
  async function ensureRecord(){if(record)return record;if(!creatingRecord)creatingRecord=api('stream',{site,title:ui.name.value.trim()||'I’m live. Tap in.',description:'',audience:'public'}).then(r=>{record=r;ui.name.disabled=true;return r;}).finally(()=>creatingRecord=null);return creatingRecord;}
@@ -54,14 +55,14 @@ export function openPhoneStudio({record=null,site=record?.site,config={},api,onC
    if(!window.MediaRecorder)throw Error('Please use an updated Safari or Chrome to broadcast.');
    const mime=['video/webm;codecs=vp8,opus','video/webm','video/mp4'].find(x=>MediaRecorder.isTypeSupported(x));if(!mime)throw Error('This browser cannot broadcast. Please try an updated Safari or Chrome.');
    notice('Connecting your live…');const session=await api('browser-session',{id:r.id});started=true;if(closed){await stop();return;}
-   const url=new URL(session.path,apiOrigin);if(url.origin!==apiOrigin||url.pathname!=='/api/addon/browser-live/socket')throw Error('Invalid live connection.');url.protocol='wss:';socket=new WebSocket(url);
+   const url=new URL(session.path,location.origin);if(url.origin!==location.origin||url.pathname!=='/api/addon/browser-live/socket')throw Error('Invalid live connection.');url.protocol=location.protocol==='https:'?'wss:':'ws:';socket=new WebSocket(url);
    await new Promise((resolve,reject)=>{const timeout=setTimeout(()=>reject(Error('Connection timed out. Please open a new live studio and try again.')),15000);const fail=()=>{clearTimeout(timeout);reject(Error('The live connection could not start.'));};socket.onopen=()=>socket.send(JSON.stringify({ticket:session.ticket}));socket.onerror=socket.onclose=fail;socket.onmessage=e=>{try{if(JSON.parse(e.data).type==='ready'){clearTimeout(timeout);resolve();}}catch{fail();}};});
    if(closed){await stop();return;}socket.onclose=e=>{if(!ending&&!closed)void stop(e.reason==='authorization-unavailable'?'The live was ended or access is no longer available.':'The connection to the live server was interrupted. Reopen this session in Live Studio to reconnect. Your viewers keep their passes.');};socket.onerror=()=>{if(!ending)notice('Checking your connection…');};
    sender=createMediaSender({socket,onError:message=>void stop(message)});
    recorder=new MediaRecorder(mixer.stream,{mimeType:mime,videoBitsPerSecond:900000,audioBitsPerSecond:96000});recorder.ondataavailable=e=>{if(!ending&&!closed&&e.data.size)sender.push(e.data);};recorder.onerror=()=>void stop('Your browser stopped capturing video. Reopen this session in Live Studio to reconnect. Your viewers keep their passes.');recorder.start(1000);startedAt=Date.now();
    flushTimer=setInterval(()=>{if(recorder?.state==='recording')try{recorder.requestData();}catch{}},2000);
    notice('Connecting · waiting for your video to arrive.');try{wakeLock=await navigator.wakeLock?.request('screen');}catch{}
-   let checking=false,lastCheck=0;timer=setInterval(async()=>{const elapsed=Math.floor((Date.now()-startedAt)/1000);ui.clock.textContent=eventDeadline?time(Math.max(0,Math.floor((eventDeadline-Date.now())/1000)))+' left':time(elapsed);if(checking||Date.now()-lastCheck<5000)return;checking=true;lastCheck=Date.now();try{const state=await api('watch?id='+r.id);if(state.event)eventDeadline=Date.now()+state.event.remaining_seconds*1000;if(state.state==='live'){record={...record,audience:state.audience};confirmed=true;if(!giftsUI)giftsUI=mountLiveGifts({stage:ui.dialog.querySelector('.rr-live-stage'),container:ui.dialog,api,id:r.id,site:r.site,signedIn:true,receiveOnly:true});notice('You’re live. Your audience can watch on the website.');refresh();}else if(['ended','hidden','deleted','failed'].includes(state.state))await stop('This live session has ended. Open a new studio to start again.');else{confirmed=false;refresh();notice('Connecting · waiting for your video to arrive.');}}catch{notice('Checking your live connection…');}finally{checking=false;}},1000);
+   let checking=false,lastCheck=0;timer=setInterval(async()=>{const elapsed=Math.floor((Date.now()-startedAt)/1000);ui.clock.textContent=eventDeadline?time(Math.max(0,Math.floor((eventDeadline-Date.now())/1000)))+' left':time(elapsed);if(checking||Date.now()-lastCheck<5000)return;checking=true;lastCheck=Date.now();try{const state=await api('watch?id='+r.id);if(state.event)eventDeadline=Date.now()+state.event.remaining_seconds*1000;if(state.state==='live'){record={...record,audience:state.audience};confirmed=true;void publishPoster();if(!giftsUI)giftsUI=mountLiveGifts({stage:ui.dialog.querySelector('.rr-live-stage'),container:ui.dialog,api,id:r.id,site:r.site,signedIn:true,receiveOnly:true});notice('You’re live. Your audience can watch on the website.');refresh();}else if(['ended','hidden','deleted','failed'].includes(state.state))await stop('This live session has ended. Open a new studio to start again.');else{confirmed=false;refresh();notice('Connecting · waiting for your video to arrive.');}}catch{notice('Checking your live connection…');}finally{checking=false;}},1000);
   }catch(e){if(started)await stop();notice(cameraError(e));}finally{starting=false;refresh();}
  }
  async function dispose(){if(closed)return;if((started||starting)&&!confirm('Close the studio and end your live?'))return;closed=true;if(started)await stop();else{camera?.dispose();await group?.close();await mixer?.dispose();}ui.dialog.close();ui.dialog.remove();window.removeEventListener('pagehide',pagehide);window.removeEventListener('beforeunload',beforeunload);onClose();}

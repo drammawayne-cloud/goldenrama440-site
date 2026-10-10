@@ -38,7 +38,7 @@ export async function openHostGuests({record,api,mixer,onPeople,onNotice,onClose
   if(closed)return;
   if(message.type==='people')onPeople(message.people);
   if(message.type==='notice')onNotice(message.message);
-  if(message.type==='invite'){clearTimeout(inviteTimer);inviteResolve?.(({richrow:'https://richrowmusic.com',waynekastro:'https://waynekastro.com',dracodon17:'https://dracodon17.com',goldenrama440:'https://goldenrama440.com'}[record.site])+'/live.html?site='+record.site+'&guest=1#invite='+encodeURIComponent(message.invite));inviteResolve=null;}
+  if(message.type==='invite'){clearTimeout(inviteTimer);inviteResolve?.(({richrow:'https://richrowrecords.com',waynekastro:'https://waynekastro.com',dracodon17:'https://dracodon17.com',goldenrama440:'https://goldenrama440.com'}[record.site])+'/live.html?site='+record.site+'&guest=1#invite='+encodeURIComponent(message.invite));inviteResolve=null;}
   if(message.type==='accepted'){
    const fail=()=>{remove(message.id);try{transport.send({type:'remove',id:message.id});}catch{}onNotice('A guest disconnected. Their panel has been removed.');};
    const connection=peer({iceServers:message.iceServers||transport.ready.iceServers,outgoing:mixer.forGuest(message.id),send:transport.send,to:message.id,onStream:stream=>mixer.set(message.id,stream,message.name),onFailure:fail});peers.set(message.id,connection);try{await connection.offer();}catch{fail();}

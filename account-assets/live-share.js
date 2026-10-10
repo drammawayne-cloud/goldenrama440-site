@@ -1,11 +1,10 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
-const origins={richrow:'https://richrowmusic.com',waynekastro:'https://waynekastro.com',dracodon17:'https://dracodon17.com',goldenrama440:'https://goldenrama440.com'};
-const brands={richrow:'Rich Row Music',waynekastro:'Wayne Kastro',dracodon17:'Draco Don17',goldenrama440:'Golden Rama 440'};
+const origins={richrow:'https://richrowrecords.com',waynekastro:'https://waynekastro.com',dracodon17:'https://dracodon17.com',goldenrama440:'https://goldenrama440.com'};
+const brands={richrow:'Rich Row Records',waynekastro:'Wayne Kastro',dracodon17:'Draco Don17',goldenrama440:'Golden Rama 440'};
 export function liveShareData(record){
  if(!record||record.audience!=='public'||!['live','preparing','scheduled'].includes(record.state)||!Object.hasOwn(brands,record.site)||!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(record.id||''))return null;
  // Build the viewer address from validated public fields. Never copy the current
  // page, credentials, guest invitations, or a provider-supplied URL.
- const url=new URL('/live.html',origins[record.site]);url.searchParams.set('site',record.site);url.searchParams.set('watch',record.id);
+ const url=new URL('/addons/share-live','https://console.richrowrecords.com');url.searchParams.set('site',record.site);url.searchParams.set('watch',record.id);
  const title=String(record.title||record.data?.title||'Live').replace(/[\u0000-\u001f\u007f]/g,' ').trim().slice(0,200),brand=brands[record.site],paid=(record.paywall||record.data?.paywall)?.enabled===true;
  const text=`${brand} ${record.state==='live'?'is live':'is going live'}! ${title}\n${paid?'Ticket required. Get access:':'Watch here:'}`;
  return {title:brand+' · '+title,text,url:url.href,caption:text+' '+url.href,paid};
@@ -23,7 +22,7 @@ function button(text,action,cls=''){const b=node('button',text,cls);b.type='butt
 export function openLiveShare(record,{host=false}={}){
  const data=liveShareData(record);if(!data)return null;
  document.querySelector('dialog.rr-share')?.close();
- if(!document.querySelector('link[data-live-share]')){const css=node('link');css.rel='stylesheet';css.href=new URL('./live-share.css?v=20261010-cover',import.meta.url).href;css.dataset.liveShare='1';document.head.append(css);}
+ if(!document.querySelector('link[data-live-share]')){const css=node('link');css.rel='stylesheet';css.href=new URL('./live-share.css?v=20261010-share',import.meta.url).href;css.dataset.liveShare='1';document.head.append(css);}
  const dialog=node('dialog',null,'rr-share'),header=node('header'),heading=node('h2','Share live'),close=button('✕',()=>dialog.close(),'rr-share-close');close.setAttribute('aria-label','Close sharing');header.append(heading,close);
  const summary=node('p',data.title,'rr-share-title'),status=node('p','Choose an app, or copy your link and caption.','rr-share-status');status.setAttribute('role','status');status.setAttribute('aria-live','polite');
  const url=node('input');url.type='text';url.value=data.url;url.readOnly=true;url.setAttribute('aria-label','Public viewer link');

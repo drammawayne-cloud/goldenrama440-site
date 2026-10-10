@@ -1,5 +1,5 @@
 (()=>{
- const script=document.currentScript,site=script?.dataset.site,origin='https://console.richrowmusic.com';
+ const script=document.currentScript,site=script?.dataset.site,origin='https://console.richrowrecords.com';
  if(!['richrow','waynekastro','dracodon17','goldenrama440'].includes(site))return;
  let current='',busy=false;
  function hide(){document.getElementById('rr-live-now')?.remove();current='';}

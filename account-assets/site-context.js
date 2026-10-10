@@ -1,4 +1,4 @@
-export const apiOrigin='https://console.richrowmusic.com';
+export const apiOrigin='https://console.richrowrecords.com';
 export const currentSite=document.body.dataset.site;
 export const artistName=document.body.dataset.artistName||'Rich Row Music';
 const validSites=['richrow','waynekastro','dracodon17','goldenrama440'];
