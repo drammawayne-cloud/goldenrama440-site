@@ -1,0 +1,12 @@
+import {el} from './rr-addon-render.js';
+const money=c=>c===null?'Pending':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(c/100);
+export async function renderPayouts({main,site,artistName,token,api,login,button,link,title}){
+ title(artistName+' / PAYOUTS','Your artist payouts.','Set up where your share is paid. Your bank and identity details stay with Stripe.');
+ if(!token){main.append(el('section',{class:'panel'},el('h2',{},'Sign in to continue'),el('p',{},'Use the email invited for this artist’s payouts.'),button('Sign in',()=>{sessionStorage.setItem('rr_after_auth','/payouts.html');login();})));return;}
+ const data=await api('artist-payouts');
+ main.append(el('section',{class:'panel'},el('h2',{},'Your share: '+data.artist_percent+'%'),el('p',{},'Calculated after Stripe processing fees and refunds. Fully refunded sales do not earn a payout. Each amount is rounded down to the nearest cent; the remainder stays with the label.'),el('p',{role:'status'},data.message),el('p',{},'This payout connection covers your artist-site live tickets and memberships.')));
+ if(data.onboarding_enabled)main.append(button(data.account.ready?'Review Stripe setup':'Set up payouts with Stripe',async()=>{const result=await api('artist-payout-onboarding',{site});const url=new URL(result.url);if(url.protocol!=='https:'||url.hostname!=='connect.stripe.com')throw Error('Stripe setup is unavailable.');location.assign(url.href);}));
+ else main.append(el('p',{class:'notice'},'The label is finishing the Stripe connection. No bank details are needed on this page.'));
+ main.append(button('Refresh status',()=>renderPayouts({main,site,artistName,token,api,login,button,link,title}),'secondary'),link('My account','/account.html'));
+ if(data.sales.length){main.append(el('h2',{},'Recent earnings'));for(const s of data.sales)main.append(el('article',{class:'card'},el('h3',{},s.kind==='live_ticket'?'Live ticket':'Artist membership'),el('p',{},new Date(s.date).toLocaleDateString()),el('p',{},'Sale '+money(s.gross_cents)+' · Refunds '+money(s.refunded_cents)+' · Stripe fees '+money(s.fee_cents)),el('p',{},'Your share ('+s.artist_percent+'%) '+money(s.artist_share_cents)),el('p',{class:'muted'},s.status==='eligible'?'Recorded earnings. Transfer status is confirmed separately.':s.status==='refunded'?'Refunded — no payout.':s.status==='disputed'?'Held while the payment is disputed.':'Awaiting verification.')));}
+}
