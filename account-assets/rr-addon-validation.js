@@ -1,4 +1,3 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
 export const types=['heading','text','button','divider','spacer','image','gallery','cover','audio','video','youtube','vimeo','instagram','tiktok','facebook','x','release','radio','distribution'];
 export function fail(message){throw Object.assign(new Error(message),{status:400});}
 export function text(v,max=200,required=false){if(typeof v!=='string'||v.length>max||(required&&!v.trim()))fail('Enter valid text (maximum '+max+' characters).');return v.trim();}
@@ -17,7 +16,11 @@ export function block(b){if(!b||!types.includes(b.type))fail('Choose an element 
  if(b.type==='release'){o.productId=id(b.productId);o.artist=text(b.artist,120,true);}
  if(b.type==='gallery'){if(!Array.isArray(b.mediaIds)||b.mediaIds.length<1||b.mediaIds.length>20)fail('Select 1–20 images.');o.mediaIds=b.mediaIds.map(id);}
  if(b.type==='spacer'){o.height=Number(b.height);if(!Number.isInteger(o.height)||o.height<8||o.height>160)fail('Spacing must be 8–160 pixels.');}
+ if(b.customized===true)o.customized=true;if(b.anchor!==undefined){if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(b.anchor)||b.anchor.length>80)fail('Choose a valid section address.');o.anchor=b.anchor;}
+ if(b.align!==undefined){if(!['left','center','right'].includes(b.align))fail('Choose a valid alignment.');o.align=b.align;}if(b.width!==undefined){if(!['full','half','third'].includes(b.width))fail('Choose a valid width.');o.width=b.width;}
  if(['heading','text'].includes(b.type)&&!o.title&&!o.body)fail('Enter element text.');return o;
 }
 export function page(p){const slug=text(p.slug,80,true);if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))fail('Use lowercase letters, numbers and hyphens in the page address.');if(!Array.isArray(p.blocks)||p.blocks.length>100)fail('Maximum 100 elements per page.');const blocks=p.blocks.map(block);if(new Set(blocks.map(b=>b.id)).size!==blocks.length)fail('Duplicate element IDs.');return {slug,title:text(p.title,120,true),published:!!p.published,blocks};}
 
+
+export function visibleBlocks(blocks){let hiddenSection=false;return blocks.filter(b=>{if(b.type==='heading')hiddenSection=!!b.hidden;return !hiddenSection&&!b.hidden;});}
