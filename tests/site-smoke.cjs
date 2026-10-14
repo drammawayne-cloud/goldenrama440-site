@@ -3,8 +3,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const pages = ['index.html', 'contact.html', 'biography.html', 'merch.html', 'membership.html', 'live.html'];
-const required = ['site.js', 'style.css', 'golden-radio.js', 'golden-radio.css', 'brand-logo.png'];
+const pages = ['index.html', 'contact.html', 'biography.html', 'merch.html', 'membership.html', 'live.html', 'catalog.html'];
+const required = ['site.js', 'style.css', 'golden-radio.js', 'golden-radio.css', 'brand-logo.png', 'catalog-deeplink.js'];
 let checked = 0;
 for (const file of [...pages, ...required]) {
   assert.ok(fs.existsSync(path.join(root, file)), 'Missing required file: ' + file);
