@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const pages = ['index.html', 'contact.html', 'biography.html', 'merch.html', 'membership.html', 'live.html', 'catalog.html'];
-const required = ['site.js', 'style.css', 'golden-radio.js', 'golden-radio.css', 'brand-logo.png', 'catalog-deeplink.js', 'catalog-public-previews.js', 'home-public-previews.js', 'home-music-browser.js', 'golden-music-catalog.json', 'golden-preview-player.js'];
+const required = ['site.js', 'style.css', 'golden-radio.js', 'golden-radio.css', 'brand-logo.png', 'catalog-deeplink.js', 'catalog-public-previews.js', 'home-public-previews.js', 'home-music-browser.js', 'golden-music-catalog.json', 'golden-preview-player.js', 'black-white-preview.js', 'black-white-preview.css'];
 let checked = 0;
 for (const file of [...pages, ...required]) {
   assert.ok(fs.existsSync(path.join(root, file)), 'Missing required file: ' + file);
@@ -20,6 +20,14 @@ assert.equal(music.tracks.filter(t => t.collection === 'Singles').length, 37);
 assert.equal(music.tracks.filter(t => t.collection === 'Collaborations').length, 14);
 assert.ok(home.includes('home-music-browser.js'), 'Homepage catalog script not included');
 assert.ok(!fs.readFileSync(path.join(root, 'site.js'), 'utf8').includes('Sign in / Join to listen'), 'Music browsing must be public');
+for (const page of ['index.html', 'catalog.html']) {
+  const markup = fs.readFileSync(path.join(root, page), 'utf8');
+  assert.match(markup, /black-white-preview\\.css/);
+  assert.match(markup, /black-white-preview\\.js/);
+}
+const mono = fs.readFileSync(path.join(root, 'black-white-preview.css'), 'utf8');
+assert.match(mono, /background:\\s*#080808/);
+assert.match(mono, /color:\\s*#fff/);
 for (const page of pages) {
   const html = fs.readFileSync(path.join(root, page), 'utf8');
   assert.doesNotMatch(html, /orizen(?:global)?|oriz[e’']n|OG Marketplace|OG Circle/i, page + ': reference-site content found');
