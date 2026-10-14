@@ -22,12 +22,12 @@ assert.ok(home.includes('home-music-browser.js'), 'Homepage catalog script not i
 assert.ok(!fs.readFileSync(path.join(root, 'site.js'), 'utf8').includes('Sign in / Join to listen'), 'Music browsing must be public');
 for (const page of ['index.html', 'catalog.html']) {
   const markup = fs.readFileSync(path.join(root, page), 'utf8');
-  assert.match(markup, /black-white-preview\\.css/);
-  assert.match(markup, /black-white-preview\\.js/);
+  assert.ok(markup.includes('black-white-preview.css'));
+  assert.ok(markup.includes('black-white-preview.js'));
 }
 const mono = fs.readFileSync(path.join(root, 'black-white-preview.css'), 'utf8');
-assert.match(mono, /background:\\s*#080808/);
-assert.match(mono, /color:\\s*#fff/);
+assert.ok(mono.includes('background:#080808'));
+assert.ok(mono.includes('color:#fff'));
 for (const page of pages) {
   const html = fs.readFileSync(path.join(root, page), 'utf8');
   assert.doesNotMatch(html, /orizen(?:global)?|oriz[e’']n|OG Marketplace|OG Circle/i, page + ': reference-site content found');
