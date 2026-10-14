@@ -1,0 +1,5 @@
+/* Golden Rama: functional preview controls, matching the existing artist design. */
+#music .catalog-card audio{display:block;width:100%;max-width:100%;margin:12px 0;accent-color:#a98648}
+#music .catalog-card a[href*="/addons/store/"]{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid #a98648;border-radius:999px;background:#a98648;color:#111;text-decoration:none;font-weight:700}
+#music .catalog-card a[href*="/addons/store/"]:hover{filter:brightness(1.12)}
+#music .catalog-card a[href*="/addons/store/"]:focus-visible{outline:3px solid currentColor;outline-offset:3px}
