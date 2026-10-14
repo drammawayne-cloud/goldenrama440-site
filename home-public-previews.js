@@ -15,7 +15,7 @@
       const product = products.get(key(title));
       if (!product) continue;
       const audioUrl = safe(product.preview?.url);
-      if (audioUrl) {
+      if (audioUrl && !card.querySelector('audio')) {
         const status = card.querySelector('.golden-preview-status');
         if (status) status.textContent = 'Free preview · No membership';
         const audio = document.createElement('audio');
