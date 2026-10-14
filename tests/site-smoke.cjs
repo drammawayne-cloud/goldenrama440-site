@@ -18,8 +18,8 @@ assert.equal(music.site, 'goldenrama440');
 assert.equal(music.tracks.length, 51);
 assert.equal(music.tracks.filter(t => t.collection === 'Singles').length, 37);
 assert.equal(music.tracks.filter(t => t.collection === 'Collaborations').length, 14);
-assert.match(home, /home-music-browser\\.js/);
-assert.doesNotMatch(fs.readFileSync(path.join(root, 'site.js'), 'utf8'), /Sign in \\/ Join to listen/);
+assert.ok(home.includes('home-music-browser.js'), 'Homepage catalog script not included');
+assert.ok(!fs.readFileSync(path.join(root, 'site.js'), 'utf8').includes('Sign in / Join to listen'), 'Music browsing must be public');
 for (const page of pages) {
   const html = fs.readFileSync(path.join(root, page), 'utf8');
   assert.doesNotMatch(html, /orizen(?:global)?|oriz[e’']n|OG Marketplace|OG Circle/i, page + ': reference-site content found');
