@@ -1,0 +1,22 @@
+/* Golden Rama: music + clothing basket controls */
+.golden-buy-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
+.golden-buy-actions button,.golden-cart-clothing,.golden-bundle-dialog button[type=submit]{
+  padding:10px 14px;border:1px solid #fff;border-radius:4px;
+  background:#fff;color:#111;font:700 13px/1.3 inherit;cursor:pointer;
+}
+.golden-buy-actions button:disabled{opacity:.7;cursor:not-allowed;background:#191919;color:#fff}
+.golden-buy-actions a{color:#fff;text-underline-offset:3px}
+.golden-bundle-dialog{max-width:min(560px,calc(100vw - 24px));width:100%;
+  padding:22px;border:1px solid #fff;border-radius:8px;background:#111;color:#fff}
+.golden-bundle-dialog::backdrop{background:rgba(0,0,0,.82)}
+.golden-bundle-dialog h2{margin:0 0 12px;font-size:1.4rem}
+.golden-bundle-dialog form{display:grid;gap:12px;margin-top:16px}
+.golden-bundle-dialog label{display:grid;gap:5px;font-weight:600}
+.golden-bundle-dialog select,.golden-bundle-dialog input{
+  width:100%;box-sizing:border-box;padding:12px;border:1px solid #ccc;
+  border-radius:4px;background:#fff;color:#111;font:inherit
+}
+.golden-bundle-dialog button:not([type=submit]){background:transparent;color:#fff;border:1px solid #fff;padding:8px 12px;border-radius:4px;cursor:pointer}
+.golden-cart-upsell{padding:12px 20px;text-align:center}
+.golden-buy-actions button:focus-visible,.golden-bundle-dialog button:focus-visible,
+.golden-bundle-dialog input:focus-visible,.golden-bundle-dialog select:focus-visible{outline:3px solid #fff;outline-offset:3px}
