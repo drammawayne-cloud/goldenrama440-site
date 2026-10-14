@@ -1,0 +1,58 @@
+/* Rectangular monochrome preview controls, scoped to Golden Rama music cards. */
+#music .catalog-card .bw-preview-player,
+#catalog-tracks article .bw-preview-player{
+  display:grid;grid-template-columns:48px minmax(0,1fr) auto;
+  align-items:center;gap:12px;width:100%;min-width:0;
+  padding:8px 12px;margin:10px 0;
+  border:1px solid #fff;border-radius:3px;background:#080808;color:#fff;
+  box-sizing:border-box;
+}
+#music .catalog-card .bw-preview-audio,
+#catalog-tracks article .bw-preview-audio{display:none}
+#music .catalog-card .bw-preview-play,
+#catalog-tracks article .bw-preview-play{
+  display:grid;place-items:center;width:44px;height:40px;
+  padding:0;border:1px solid #fff;border-radius:2px;
+  background:#000;color:#fff;font-size:18px;font-weight:700;
+  line-height:1;cursor:pointer;
+}
+#music .catalog-card .bw-preview-play:hover,
+#catalog-tracks article .bw-preview-play:hover{background:#fff;color:#000}
+#music .catalog-card .bw-preview-seek,
+#catalog-tracks article .bw-preview-seek{
+  width:100%;min-width:0;height:6px;margin:0;cursor:pointer;
+  border:0;border-radius:0;appearance:none;-webkit-appearance:none;
+  background:linear-gradient(to right,#fff 0%,#fff var(--played,0%),#555 var(--played,0%),#555 100%);
+  accent-color:#fff;
+}
+#music .catalog-card .bw-preview-seek::-webkit-slider-thumb,
+#catalog-tracks article .bw-preview-seek::-webkit-slider-thumb{
+  appearance:none;-webkit-appearance:none;width:12px;height:12px;
+  border:2px solid #000;border-radius:0;background:#fff;box-shadow:0 0 0 1px #fff;
+}
+#music .catalog-card .bw-preview-seek::-moz-range-thumb,
+#catalog-tracks article .bw-preview-seek::-moz-range-thumb{
+  width:10px;height:10px;border:1px solid #fff;border-radius:0;background:#fff;
+}
+#music .catalog-card .bw-preview-time,
+#catalog-tracks article .bw-preview-time{
+  color:#fff;font:600 12px/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;
+  white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+#music .catalog-card .bw-preview-play:focus-visible,
+#catalog-tracks article .bw-preview-play:focus-visible,
+#music .catalog-card .bw-preview-seek:focus-visible,
+#catalog-tracks article .bw-preview-seek:focus-visible{
+  outline:2px solid #fff;outline-offset:3px;
+}
+@media(max-width:480px){
+  #music .catalog-card .bw-preview-player,
+  #catalog-tracks article .bw-preview-player{
+    grid-template-columns:38px minmax(0,1fr);
+    gap:8px;padding:8px;
+  }
+  #music .catalog-card .bw-preview-play,
+  #catalog-tracks article .bw-preview-play{width:36px;height:36px}
+  #music .catalog-card .bw-preview-time,
+  #catalog-tracks article .bw-preview-time{grid-column:2;justify-self:end}
+}
