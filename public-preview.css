@@ -3,3 +3,22 @@
 #music .catalog-card a[href*="/addons/store/"]{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid #a98648;border-radius:999px;background:#a98648;color:#111;text-decoration:none;font-weight:700}
 #music .catalog-card a[href*="/addons/store/"]:hover{filter:brightness(1.12)}
 #music .catalog-card a[href*="/addons/store/"]:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+
+/* Golden Rama homepage catalog: existing gold/charcoal visual language. */
+#music .golden-music-browser{margin:24px 0 34px}
+#music .golden-music-browser-head{display:flex;flex-wrap:wrap;align-items:end;gap:12px 20px;justify-content:space-between;margin-bottom:20px}
+#music .golden-music-browser-head h3{font-size:clamp(1.35rem,2.6vw,2rem);margin:0}
+#music .golden-music-browser-head p{flex-basis:100%;margin:0;opacity:.82}
+#music .golden-music-browser-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+#music .golden-music-browser-grid .catalog-card{min-width:0;padding:14px;border:1px solid #756343;border-radius:12px;display:flex;flex-direction:column;gap:9px}
+#music .golden-music-browser-grid .catalog-card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+#music .golden-music-browser-grid .catalog-card h3{font-size:1rem;margin:0;overflow-wrap:anywhere}
+#music .golden-music-browser-grid .catalog-card p{margin:0;font-size:.86rem;opacity:.8}
+#music .golden-preview-status{font-size:.8rem;color:#bca77e}
+#music .golden-track-link{margin-top:auto;color:#d8b776;text-underline-offset:4px}
+#music .golden-music-more{display:block;margin:20px auto 0;padding:12px 20px;border:1px solid #a98648;border-radius:8px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+#music .golden-music-more:hover{background:#a98648;color:#111}
+#music .golden-music-more:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+@media(max-width:900px){#music .golden-music-browser-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){#music .golden-music-browser-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+@media(max-width:360px){#music .golden-music-browser-grid{grid-template-columns:1fr}}
