@@ -22,7 +22,7 @@
         continue;
       }
       const preview = safeUrl(product.preview?.url);
-      if (preview) {
+      if (preview && !card.querySelector('audio')) {
         const audio = document.createElement('audio');
         audio.controls = true;
         audio.preload = 'none';
@@ -30,7 +30,8 @@
         audio.setAttribute('aria-label', 'Free public preview of ' + title);
         card.append(audio);
         if (status) status.textContent = 'Free preview · No membership needed';
-      } else if (status) status.textContent = 'Public preview coming soon';
+      } else if (preview && status) status.textContent = 'Free preview · No membership needed';
+      else if (!card.querySelector('audio') && status) status.textContent = 'Public preview coming soon';
       const buy = document.createElement('a');
       buy.href = '/addons/store/?product=' + encodeURIComponent(product.id);
       buy.textContent = 'Purchase song ↗';
