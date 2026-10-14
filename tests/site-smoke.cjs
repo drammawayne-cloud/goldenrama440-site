@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const pages = ['index.html', 'contact.html', 'biography.html', 'merch.html', 'membership.html', 'live.html', 'catalog.html'];
-const required = ['site.js', 'style.css', 'golden-radio.js', 'golden-radio.css', 'brand-logo.png', 'catalog-deeplink.js', 'catalog-public-previews.js', 'home-public-previews.js', 'home-music-browser.js', 'golden-music-catalog.json', 'golden-preview-player.js', 'black-white-preview.js', 'black-white-preview.css'];
+const required = ['site.js', 'style.css', 'golden-radio.js', 'golden-radio.css', 'brand-logo.png', 'catalog-deeplink.js', 'catalog-public-previews.js', 'home-public-previews.js', 'home-music-browser.js', 'golden-music-catalog.json', 'golden-preview-player.js', 'golden-bundle-shop.js', 'golden-bundle-shop.css', 'black-white-preview.js', 'black-white-preview.css'];
 let checked = 0;
 for (const file of [...pages, ...required]) {
   assert.ok(fs.existsSync(path.join(root, file)), 'Missing required file: ' + file);
@@ -28,6 +28,11 @@ for (const page of ['index.html', 'catalog.html']) {
 const mono = fs.readFileSync(path.join(root, 'black-white-preview.css'), 'utf8');
 assert.ok(mono.includes('background:#080808'));
 assert.ok(mono.includes('color:#fff'));
+for (const page of ['index.html', 'catalog.html', 'addons/cart/index.html']) {
+  const html = fs.readFileSync(path.join(root, page), 'utf8');
+  assert.ok(html.includes('golden-bundle-shop.js'), 'Missing song/clothing cart on '+page);
+  assert.ok(html.includes('golden-bundle-shop.css'), 'Missing cart styles on '+page);
+}
 for (const page of pages) {
   const html = fs.readFileSync(path.join(root, page), 'utf8');
   assert.doesNotMatch(html, /orizen(?:global)?|oriz[e’']n|OG Marketplace|OG Circle/i, page + ': reference-site content found');
