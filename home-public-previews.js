@@ -1,7 +1,7 @@
 'use strict';
 (() => {
-  const section = document.getElementById('music');
-  if (!section) return;
+  const root = document.getElementById('content');
+  if (!root) return;
   const key = value => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
   const products = new Map();
   const safe = value => {
@@ -9,13 +9,15 @@
     catch { return null; }
   };
   function enhance() {
-    for (const card of section.querySelectorAll('.catalog-card')) {
+    for (const card of root.querySelectorAll('#music .catalog-card')) {
       if (card.dataset.publicPreview === 'ready') continue;
       const title = card.querySelector('h3')?.textContent;
       const product = products.get(key(title));
       if (!product) continue;
       const audioUrl = safe(product.preview?.url);
       if (audioUrl) {
+        const status = card.querySelector('.golden-preview-status');
+        if (status) status.textContent = 'Free preview · No membership';
         const audio = document.createElement('audio');
         audio.src = audioUrl;
         audio.controls = true;
@@ -35,7 +37,7 @@
     if (scheduled) return;
     scheduled = true;
     queueMicrotask(() => { scheduled = false; enhance(); });
-  }).observe(section, {childList:true,subtree:true});
+  }).observe(root, {childList:true,subtree:true});
   fetch('https://console.richrowrecords.com/api/addon/catalog?site=goldenrama440', {
     credentials:'omit', cache:'no-store', signal:AbortSignal.timeout(12000)
   }).then(r => r.ok ? r.json() : []).then(rows => {
