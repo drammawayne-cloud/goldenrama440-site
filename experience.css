@@ -133,3 +133,10 @@ body.artist-home .artist-spotlight{padding:clamp(46px,6vw,90px) clamp(16px,3vw,4
 .artist-spotlight .spotlight-intro{max-width:760px;margin-bottom:32px}.spotlight-intro span,.spotlight-card>span{font:700 11px/1.5 Arial,sans-serif;letter-spacing:.18em;color:#dcb77b}.spotlight-intro h2{font:500 clamp(38px,6vw,82px)/.98 Georgia,serif;letter-spacing:-.045em;margin:16px 0}.spotlight-intro p{font-size:17px;color:#ded2bc}.spotlight-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.spotlight-card{display:flex;min-height:170px;flex-direction:column;justify-content:space-between;padding:22px;background:#28231b;border:1px solid #695337;border-radius:12px;color:#fff6e6;text-decoration:none;transition:transform .2s,border-color .2s}.spotlight-card:hover,.spotlight-card:focus-visible{transform:translateY(-3px);border-color:#e5c58d}.spotlight-card strong{font:500 clamp(21px,2vw,32px)/1.06 Georgia,serif}.spotlight-card small{font:13px Arial,sans-serif;color:#ddcfb8}
 @media(max-width:900px){.spotlight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:500px){.spotlight-grid{grid-template-columns:1fr}.spotlight-card{min-height:140px}body.artist-home .artist-spotlight{padding:35px 20px}}
+
+/* Refined artist hero: prominent name, alias, and definition. */
+body.artist-home .campaign-hero h1{font-size:clamp(66px,7.4vw,124px);line-height:.88;letter-spacing:-.055em}
+body.artist-home .campaign-hero .hero-alias{font:italic 800 clamp(42px,5vw,72px)/1.05 Georgia,serif;letter-spacing:.01em;color:#eac485;margin:18px 0 6px;text-shadow:0 4px 16px #000b}
+body.artist-home .campaign-hero .hero-copy #intro{font:italic 500 clamp(17px,1.65vw,24px)/1.4 Georgia,serif;margin:17px 0 26px;max-width:510px}
+@media(min-width:751px){body.artist-home .campaign-hero .hero-copy{width:min(62%,800px)}}
+@media(max-width:750px){body.artist-home .campaign-hero h1{font-size:clamp(58px,13vw,95px)}body.artist-home .campaign-hero .hero-alias{font-size:clamp(38px,9vw,56px);margin:12px 0 3px}body.artist-home .campaign-hero .hero-copy #intro{font-size:17px;margin:12px 0 18px}}
