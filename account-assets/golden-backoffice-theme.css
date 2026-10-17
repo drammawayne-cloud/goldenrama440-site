@@ -1,0 +1,12 @@
+/* Single, predictable palette for the Golden Rama back office. */
+html:has(body[data-site="goldenrama440"][data-artist-name]){color-scheme:light;--paper:#f6f1e7;--panel:#fffdf8;--surface:#fffdf8;--ink:#24221e;--muted:#62594e;--line:#d4c5ae;--soft:#ede1ca;--text:#24221e;--gold:#b58a3b;--accent:#b58a3b;--gold-light:#e8d5aa}
+html[data-theme="dark"]:has(body[data-site="goldenrama440"][data-artist-name]),html:has(body[data-site="goldenrama440"][data-artist-name].dark){color-scheme:dark;--paper:#171714;--panel:#27241f;--surface:#27241f;--ink:#fff5e2;--muted:#e1d2b7;--line:#807057;--soft:#332d25;--text:#fff5e2;--gold:#ebc77c;--accent:#ebc77c;--gold-light:#51422b}
+body[data-site="goldenrama440"][data-artist-name]{background:var(--paper)!important;color:var(--ink)!important}
+body[data-site="goldenrama440"][data-artist-name]>header{background:#171715!important;color:#fff8e9!important;border-color:#8f7a58!important}
+body[data-site="goldenrama440"][data-artist-name]>header :is(a,a:visited,span,small,button,nav a){color:#fff8e9!important;-webkit-text-fill-color:#fff8e9!important;opacity:1!important}
+body[data-site="goldenrama440"][data-artist-name]>header button{background:#403324!important;border:1px solid #d0aa6b!important}
+body[data-site="goldenrama440"][data-artist-name] :is(main,.portal-layout aside){color:var(--ink)}
+body[data-site="goldenrama440"][data-artist-name] :is(.card,.panel,.portal-layout aside,dialog){background:var(--panel);color:var(--ink);border-color:var(--line)}
+body[data-site="goldenrama440"][data-artist-name] .portal-layout .sidebar-bottom{display:grid!important;visibility:visible!important}
+body[data-site="goldenrama440"][data-artist-name] .portal-layout .sidebar-bottom :is(a,button){color:var(--ink)!important;opacity:1!important}
+@media(max-width:700px){body[data-site="goldenrama440"][data-artist-name] .portal-layout .sidebar-bottom{display:flex!important;flex-wrap:wrap}}
