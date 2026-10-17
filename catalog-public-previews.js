@@ -11,6 +11,7 @@
     } catch { return null; }
   };
   const products = new Map();
+  const streamingOnly = new Set(["forbibbenbond4", "taken", "alienbrain", "cemetery440", "kobireachtopftrama", "propagal", "cahcountgoldenramanickapella", "guhfidemcova", "moblandftyardiebritish440", "shewantitftdonyute", "workdatremixftpapajay", "clapitinnaface", "anyweh", "integrity", "liveinnait", "achancemaster", "gudgudmaster", "zombie", "divideconquerp2", "aroundtheworldv2", "capitalp", "whineponditipmix", "fucktonight", "lovetonight", "pollyclassicaldancemix440"]);
   function enhance() {
     for (const card of grid.querySelectorAll('article')) {
       if (card.dataset.publicPreview === 'ready') continue;
@@ -33,9 +34,10 @@
       } else if (preview && status) status.textContent = 'Free preview · No membership needed';
       else if (!card.querySelector('audio') && status) status.textContent = 'Public preview coming soon';
       const buy = document.createElement('a');
-      buy.href = '/addons/store/?product=' + encodeURIComponent(product.id);
-      buy.textContent = 'Purchase song ↗';
-      buy.setAttribute('aria-label', 'Purchase ' + title);
+      const streamsOnly = streamingOnly.has(normalized(title));
+      buy.href = streamsOnly ? '/membership.html' : '/addons/store/?product=' + encodeURIComponent(product.id);
+      buy.textContent = streamsOnly ? 'Stream with membership ↗' : 'Purchase song ↗';
+      buy.setAttribute('aria-label', (streamsOnly ? 'Stream ' : 'Purchase ') + title);
       card.append(buy);
       card.dataset.publicPreview = 'ready';
     }
