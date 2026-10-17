@@ -32,3 +32,12 @@ body[data-site="goldenrama440"][data-page="portal"] .sidebar-bottom #theme{
 }
 body[data-site="goldenrama440"][data-page="portal"] #portal-nav button{color:var(--ink)!important}
 body[data-site="goldenrama440"][data-page="portal"] #portal-nav button.active{background:var(--gold-light)!important;color:var(--ink)!important}
+/* Make back-office controls visible at every viewport and in both themes. */
+body[data-site="goldenrama440"][data-page="portal"] > header :is(a,button,small,span){color:#fff8e9!important;opacity:1!important}
+body[data-site="goldenrama440"][data-page="portal"] > header nav a:hover,
+body[data-site="goldenrama440"][data-page="portal"] > header nav a:focus-visible{background:#403526!important;text-decoration:underline}
+body[data-site="goldenrama440"][data-page="portal"] .portal-layout aside{background:var(--panel)!important;color:var(--ink)!important}
+body[data-site="goldenrama440"][data-page="portal"] .portal-layout aside nav button{color:var(--ink)!important;opacity:1!important}
+body[data-site="goldenrama440"][data-page="portal"] .portal-layout .sidebar-bottom{display:grid!important;visibility:visible!important}
+body[data-site="goldenrama440"][data-page="portal"] .portal-layout .sidebar-bottom :is(a,button){opacity:1!important;visibility:visible!important;color:var(--ink)!important}
+@media(max-width:700px){body[data-site="goldenrama440"][data-page="portal"] .portal-layout .sidebar-bottom{display:flex!important;flex-wrap:wrap;gap:10px;padding-top:12px;margin-top:12px}}
