@@ -25,3 +25,12 @@ body[data-site="goldenrama440"][data-artist-name] :is(.card,.panel,.portal-layou
 body[data-site="goldenrama440"][data-artist-name] .portal-layout aside button{color:var(--ink)!important}
 body[data-site="goldenrama440"][data-artist-name]>header nav a{background:transparent!important}
 body[data-site="goldenrama440"][data-artist-name]>header :is(a,button):focus-visible{outline:3px solid #c59032!important;outline-offset:3px}
+/* Theme contrast applies to every back-office header and navigation element. */
+html[data-theme="light"] body[data-site="goldenrama440"][data-artist-name]{--paper:#f6f1e7;--panel:#fffdf8;--surface:#fffdf8;--ink:#24221e;--muted:#62594e;--line:#d4c5ae;--text:#24221e;--gold-light:#e8d5aa}
+html[data-theme="dark"] body[data-site="goldenrama440"][data-artist-name]{--paper:#171714;--panel:#27241f;--surface:#27241f;--ink:#fff5e2;--muted:#e1d2b7;--line:#807057;--text:#fff5e2;--gold-light:#51422b}
+html[data-theme="light"] body[data-site="goldenrama440"][data-artist-name] > header :is(.brand,.brand *,nav,nav *,#account,#account *,button,.nav-toggle,.theme-toggle){color:#24211d!important;-webkit-text-fill-color:#24211d!important;visibility:visible!important;opacity:1!important}
+html[data-theme="dark"] body[data-site="goldenrama440"][data-artist-name] > header :is(.brand,.brand *,nav,nav *,#account,#account *,button,.nav-toggle,.theme-toggle){color:#fff8e9!important;-webkit-text-fill-color:#fff8e9!important;visibility:visible!important;opacity:1!important}
+html[data-theme="light"] body[data-site="goldenrama440"][data-artist-name] > header :is(.nav-panel,.nav-toggle,.theme-toggle){background:#fffaf0!important;border-color:#a88548!important}
+html[data-theme="dark"] body[data-site="goldenrama440"][data-artist-name] > header :is(.nav-panel,.nav-toggle,.theme-toggle){background:#302920!important;border-color:#bda06e!important}
+html[data-theme="light"] body[data-site="goldenrama440"][data-artist-name] .portal-layout aside :is(a,button){color:#24211d!important;-webkit-text-fill-color:#24211d!important}
+html[data-theme="dark"] body[data-site="goldenrama440"][data-artist-name] .portal-layout aside :is(a,button){color:#fff5e2!important;-webkit-text-fill-color:#fff5e2!important}
