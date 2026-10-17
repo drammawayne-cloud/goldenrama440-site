@@ -10,3 +10,10 @@ body[data-site="goldenrama440"][data-artist-name] :is(.card,.panel,.portal-layou
 body[data-site="goldenrama440"][data-artist-name] .portal-layout .sidebar-bottom{display:grid!important;visibility:visible!important}
 body[data-site="goldenrama440"][data-artist-name] .portal-layout .sidebar-bottom :is(a,button){color:var(--ink)!important;opacity:1!important}
 @media(max-width:700px){body[data-site="goldenrama440"][data-artist-name] .portal-layout .sidebar-bottom{display:flex!important;flex-wrap:wrap}}
+/* Final authoritative header colors follow the selected theme. */
+html[data-theme="light"] body[data-site="goldenrama440"][data-artist-name]>header{background:#fffaf0!important;color:#24211d!important;border-color:#cdbb9b!important}
+html[data-theme="light"] body[data-site="goldenrama440"][data-artist-name]>header :is(a,a:visited,span,small,nav a,button){color:#24211d!important;-webkit-text-fill-color:#24211d!important}
+html[data-theme="light"] body[data-site="goldenrama440"][data-artist-name]>header button{background:#f3e8d5!important;border:1px solid #a88548!important}
+html[data-theme="dark"] body[data-site="goldenrama440"][data-artist-name]>header{background:#171715!important;color:#fff8e9!important}
+html[data-theme="dark"] body[data-site="goldenrama440"][data-artist-name]>header :is(a,a:visited,span,small,nav a,button){color:#fff8e9!important;-webkit-text-fill-color:#fff8e9!important}
+body[data-site="goldenrama440"][data-artist-name]>header .golden-theme-control{display:inline-flex!important;align-items:center;justify-content:center;min-height:44px;padding:9px 14px;border-radius:7px;font:700 13px system-ui;cursor:pointer;white-space:nowrap}
