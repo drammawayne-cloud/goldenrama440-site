@@ -1,0 +1,22 @@
+/* Golden Rama motion system — no autoplay audio or forced loading overlay. */
+@media (prefers-reduced-motion: no-preference) {
+  html {scroll-behavior:smooth}
+  body.artist-home .brand-logo-image {animation:goldenLogoEnter 1.25s cubic-bezier(.2,.8,.2,1) both;transform-origin:center}
+  body.artist-home .campaign-hero .hero-image {animation:goldenHeroReveal 1.5s ease-out both}
+  body.artist-home .campaign-hero .hero-copy > * {animation:goldenTextEnter .8s cubic-bezier(.18,.75,.2,1) both}
+  body.artist-home .campaign-hero .hero-copy > :nth-child(1){animation-delay:.18s}
+  body.artist-home .campaign-hero .hero-copy > :nth-child(2){animation-delay:.30s}
+  body.artist-home .campaign-hero .hero-copy > :nth-child(3){animation-delay:.43s}
+  body.artist-home .campaign-hero .hero-copy > :nth-child(4){animation-delay:.52s}
+  body.artist-home .campaign-hero .hero-copy > :nth-child(n+5){animation-delay:.62s}
+  body.artist-home .brand-logo-slot:hover .brand-logo-image{transform:scale(1.055) rotate(-2deg)}
+  body.artist-home .brand-logo-image{transition:transform .35s ease}
+  body.artist-home .hero-actions a{transition:transform .25s ease,box-shadow .25s ease}
+  body.artist-home .hero-actions a:hover{transform:translateY(-3px);box-shadow:0 12px 30px #0005}
+  body.artist-home .motion-reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+  body.artist-home .motion-reveal.motion-visible{opacity:1;transform:none}
+  @keyframes goldenLogoEnter{from{opacity:0;transform:translateY(-18px) scale(.78) rotate(-8deg);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+  @keyframes goldenHeroReveal{from{opacity:.6;transform:scale(1.07)}to{opacity:1;transform:scale(1)}}
+  @keyframes goldenTextEnter{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}body.artist-home .motion-reveal{opacity:1!important;transform:none!important}}
