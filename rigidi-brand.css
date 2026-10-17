@@ -1,1 +1,8 @@
-.campaign-hero #hero-title span{font-size:clamp(64px,10vw,140px);letter-spacing:-.055em}.campaign-hero #hero-title em{font-size:clamp(24px,4.3vw,57px);letter-spacing:-.02em}.campaign-hero #intro{font-weight:600;max-width:35rem}
+body.artist-home .campaign-hero .hero-copy{position:relative;z-index:5;width:min(46%,510px);height:auto;min-height:100%;padding:clamp(22px,3vw,48px);justify-content:center;align-items:flex-start;background:linear-gradient(90deg,rgba(4,5,9,.78),rgba(4,5,9,.46) 75%,transparent);text-align:left}
+body.artist-home .campaign-hero #hero-title{max-width:100%;font-size:clamp(43px,5.7vw,78px);line-height:.93;letter-spacing:-.055em;overflow-wrap:normal}
+body.artist-home .campaign-hero #hero-title span,body.artist-home .campaign-hero #hero-title em,body.artist-home .campaign-hero #hero-title small{display:block;font-size:inherit;line-height:1.02}
+body.artist-home .campaign-hero #hero-title small{font-size:.46em;letter-spacing:.04em;color:#e2c18a;margin-top:7px}
+body.artist-home .campaign-hero .hero-copy #intro{font-size:clamp(15px,1.5vw,19px);font-weight:600;max-width:310px;line-height:1.5;margin:20px 0}
+body.artist-home .campaign-hero .hero-copy .eyebrow{font-size:10px;margin-bottom:20px}
+body.artist-home .campaign-hero .golden-hero-slide{object-position:68% center}
+@media(max-width:750px){body.artist-home .campaign-hero .hero-copy{width:64%;height:100%;padding:22px 16px;justify-content:center;background:linear-gradient(90deg,rgba(3,4,7,.85),rgba(3,4,7,.38) 85%,transparent)}body.artist-home .campaign-hero #hero-title{font-size:clamp(36px,8vw,55px)}body.artist-home .campaign-hero .hero-copy #intro{font-size:14px;margin:14px 0}body.artist-home .campaign-hero .hero-copy .eyebrow{font-size:8px;margin-bottom:12px}body.artist-home .campaign-hero .golden-hero-slide{object-position:65% center}}
