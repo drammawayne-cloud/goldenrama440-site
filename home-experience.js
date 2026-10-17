@@ -18,7 +18,7 @@
  }
  function enhanceAbout(){
   const target=document.getElementById('about');if(!target||target.dataset.campaign)return;target.dataset.campaign='ready';
-  const figure=el('figure',null,'artist-story-photo'),img=el('img');img.src='assets/portraits/01-studio-hero.jpg';img.alt='Golden Rama wearing a burgundy knit polo in a sandstone studio';img.loading='lazy';img.width=1122;img.height=1402;figure.append(img);target.append(figure);
+  const figure=el('figure',null,'artist-story-photo'),img=el('img');img.src='assets/portraits/whatsapp-2026-10-17/golden-rama-15.jpg';img.alt='Golden Rama wearing a burgundy knit polo in a sandstone studio';img.loading='lazy';img.width=1122;img.height=1402;figure.append(img);target.append(figure);
   const links=el('div',null,'artist-story-links');links.append(link('Biography ↗','biography.html',''),link('Press kit ↗','epk.html',''));target.append(links);
  }
  function enhanceConnect(){
