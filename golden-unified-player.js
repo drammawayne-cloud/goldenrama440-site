@@ -1,0 +1,20 @@
+'use strict';
+(()=>{
+ const stream='https://richrow-radio.129-213-164-255.sslip.io/listen/golden_rama_radio/radio.mp3';
+ const root=document.createElement('aside');root.className='gr-unified-player';root.setAttribute('aria-label','Golden Rama music player');
+ root.innerHTML='<button class="gr-play" type="button" aria-label="Play Golden Rama Radio">▶</button><div class="gr-logo-motion"><img src="/brand-logo.png" alt="Golden Rama 440 logo"></div><div class="gr-player-text"><strong>GOLDEN RAMA RADIO <span class="gr-player-status">READY</span></strong><p class="gr-player-track">Golden Rama Radio · live</p></div><label class="gr-volume">Volume <input type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Player volume"></label><button class="gr-radio" type="button" title="Return to Golden Rama Radio">Radio ↻</button><audio preload="none" crossorigin="anonymous"></audio>';
+ document.body.append(root);
+ const own=root.querySelector('audio'),play=root.querySelector('.gr-play'),track=root.querySelector('.gr-player-track'),status=root.querySelector('.gr-player-status'),volume=root.querySelector('input');
+ let active=own,source='Golden Rama Radio · live';own.src=stream;own.volume=.8;
+ const update=()=>{const running=!active.paused;root.classList.toggle('is-playing',running);play.textContent=running?'Ⅱ':'▶';play.setAttribute('aria-label',(running?'Pause ':'Play ')+source);status.textContent=running?'PLAYING':active.error?'UNAVAILABLE':'READY';track.textContent=source;volume.value=String(active.volume)};
+ const activate=(media,name)=>{if(active!==media){active.pause();active=media;}source=name||'Golden Rama music';update()};
+ play.onclick=async()=>{try{if(active.paused)await active.play();else active.pause()}catch{status.textContent='UNAVAILABLE'}};
+ root.querySelector('.gr-radio').onclick=async()=>{activate(own,'Golden Rama Radio · live');try{await own.play()}catch{status.textContent='UNAVAILABLE'}};
+ volume.oninput=()=>{active.volume=Number(volume.value)};
+ document.addEventListener('play',event=>{const media=event.target;if(!(media instanceof HTMLMediaElement))return;if(media!==own){const card=media.closest('article,.golden-track-tile,.catalog-card');const name=card?.querySelector('h3,h4')?.textContent?.trim()||media.getAttribute('aria-label')||'Golden Rama music';activate(media,name)}document.querySelectorAll('audio,video').forEach(m=>{if(m!==media&&!m.paused)m.pause()});const shadow=document.querySelector('#golden-radio div')?.shadowRoot;shadow?.querySelectorAll('audio').forEach(m=>{if(m!==media&&!m.paused)m.pause()});update()},true);
+ document.addEventListener('highlife-play',e=>{if(e.detail instanceof HTMLMediaElement){activate(e.detail,'Golden Rama Radio · live');own.pause();update()}});
+ document.addEventListener('pause',e=>{if(e.target===active)update()},true);
+ document.addEventListener('ended',e=>{if(e.target===active)update()},true);
+ document.addEventListener('volumechange',e=>{if(e.target===active)volume.value=String(active.volume)},true);
+ update();
+})();
