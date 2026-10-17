@@ -6,7 +6,7 @@ const intro=()=>{
  const header=document.querySelector('header .brand-logo-image');
  let finished=false;
  const finish=()=>{if(finished)return;finished=true;overlay.classList.add('gr-exit');document.documentElement.classList.add('gr-intro-done');setTimeout(()=>overlay.remove(),750)};
- if(reduce){finish();return}
+ if(reduce){setTimeout(finish,1200);return}
  const fly=()=>{
   if(finished)return;
   const target=header?.getBoundingClientRect(),source=logo.getBoundingClientRect();
@@ -19,7 +19,8 @@ const intro=()=>{
   logo.style.setProperty('--gr-scale',String(Math.min(target.width/source.width,target.height/source.height)));
   setTimeout(finish,800);
  };
- overlay.addEventListener('click',finish,{once:true});
+ // No click-to-skip: navigation clicks must not cancel the first-load intro.
+
  document.addEventListener('keydown',e=>{if(e.key==='Escape')finish()});
  setTimeout(()=>{if(!finished){overlay.classList.add('gr-flash');setTimeout(fly,230)}},1450);
  setTimeout(finish,4000);
