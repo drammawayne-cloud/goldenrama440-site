@@ -1,5 +1,6 @@
 'use strict';
 (async()=>{
+ await new Promise(resolve=>{if(window.RR_STUDIO_PAGE){window.addEventListener('rr:page-ready',resolve,{once:true});}else resolve();});
  const section=document.getElementById('music');if(!section)return;
  const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const [catalog,clips,exclusions]=await Promise.all(['golden-music-catalog.json','golden-preview-manifest.json','golden-stream-only.json'].map(async path=>{const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw Error('Catalog unavailable');return r.json()})).catch(()=>[null,null,null]);
@@ -14,7 +15,7 @@
  const link=el('a','',isStream?'Membership streaming ↗':'Shop release ↗');link.href=isStream?'membership.html':'addons/store/';buttons.append(link);card.append(img,name,buttons);scroller.append(card)}group.append(heading,hint,scroller);return group}
  const paid=catalog.tracks.filter(t=>!stream.has(norm(t.title))),streaming=catalog.tracks.filter(t=>stream.has(norm(t.title)));
  shell.append(row('Music store · Purchasable releases',paid,false),row('Streaming links · Members',streaming,true));
- const old=section.querySelector('#golden-public-music');old?.remove();section.append(shell);
+ section.querySelectorAll(':scope > :not(.section-head)').forEach(n=>n.remove());section.append(shell);
  // Replace the prior grid only for this music section; avoid duplicate audio controls.
- const observer=new MutationObserver(()=>{for(const p of section.querySelectorAll('.golden-music-browser:not(.golden-horizontal-music)'))p.remove()});observer.observe(section,{childList:true});
+ const observer=new MutationObserver(()=>{for(const n of section.children)if(!n.classList.contains('section-head')&&n!==shell)n.remove()});observer.observe(section,{childList:true});
 })().catch(console.error);
