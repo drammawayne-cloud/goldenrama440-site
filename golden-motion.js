@@ -1,5 +1,17 @@
 (()=>{'use strict';
+const intro=()=>{
+ const overlay=document.getElementById('gr-intro');
+ if(!overlay)return;
+ let finished=false;const finish=()=>{if(finished)return;finished=true;overlay.classList.add('gr-exit');document.documentElement.classList.add('gr-intro-done');document.body.style.overflow='';setTimeout(()=>overlay.remove(),850)};
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ // Intro is skippable by click, keyboard, or reduced-motion preference.
+ const skip=()=>finish();
+ overlay.addEventListener('click',skip,{once:true});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Enter')skip()},{once:true});
+ setTimeout(finish,reduce?250:2550);
+};
 const start=()=>{
+ intro();
  if(!document.body.classList.contains('artist-home'))return;
  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
  const targets=document.querySelectorAll('.artist-spotlight,.artist-home #golden-radio,.artist-home #content > section');
