@@ -41,3 +41,13 @@ body[data-site="goldenrama440"][data-page="portal"] .portal-layout aside nav but
 body[data-site="goldenrama440"][data-page="portal"] .portal-layout .sidebar-bottom{display:grid!important;visibility:visible!important}
 body[data-site="goldenrama440"][data-page="portal"] .portal-layout .sidebar-bottom :is(a,button){opacity:1!important;visibility:visible!important;color:var(--ink)!important}
 @media(max-width:700px){body[data-site="goldenrama440"][data-page="portal"] .portal-layout .sidebar-bottom{display:flex!important;flex-wrap:wrap;gap:10px;padding-top:12px;margin-top:12px}}
+/* Consistent readable navigation across every Golden Rama account and back-office page. */
+body[data-site="goldenrama440"] > header{background:#171715!important;color:#fff8e9!important;border-bottom:1px solid #947953!important}
+body[data-site="goldenrama440"] > header :is(.brand,.brand small,nav a,#account,#account a,span){color:#fff8e9!important;opacity:1!important}
+body[data-site="goldenrama440"] > header :is(button,.theme-toggle){background:#302920!important;color:#fff8e9!important;border:1px solid #bda06e!important;opacity:1!important}
+body[data-site="goldenrama440"] > header :is(a,button):focus-visible{outline:3px solid #ffdb91!important;outline-offset:3px}
+body[data-site="goldenrama440"] .portal-layout aside{background:var(--panel)!important;color:var(--ink)!important}
+body[data-site="goldenrama440"] .portal-layout aside nav button{color:var(--ink)!important;opacity:1!important}
+body[data-site="goldenrama440"] .portal-layout .sidebar-bottom{display:grid!important;visibility:visible!important}
+body[data-site="goldenrama440"] .portal-layout .sidebar-bottom :is(a,button){color:var(--ink)!important;opacity:1!important;visibility:visible!important}
+@media(max-width:700px){body[data-site="goldenrama440"] .portal-layout .sidebar-bottom{display:flex!important;flex-wrap:wrap;gap:10px;padding-top:12px;margin-top:12px}}
