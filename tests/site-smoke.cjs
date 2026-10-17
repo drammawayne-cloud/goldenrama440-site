@@ -18,7 +18,7 @@ assert.equal(music.site, 'goldenrama440');
 assert.equal(music.tracks.length, 51);
 assert.equal(music.tracks.filter(t => t.collection === 'Singles').length, 37);
 assert.equal(music.tracks.filter(t => t.collection === 'Collaborations').length, 14);
-assert.ok(home.includes('home-music-browser.js'), 'Homepage catalog script not included');
+assert.ok(home.includes('golden-horizontal-music.js'), 'Homepage horizontal catalog script not included');
 assert.ok(!fs.readFileSync(path.join(root, 'site.js'), 'utf8').includes('Sign in / Join to listen'), 'Music browsing must be public');
 for (const page of ['index.html', 'catalog.html']) {
   const markup = fs.readFileSync(path.join(root, page), 'utf8');
