@@ -11,3 +11,24 @@ html:has(body[data-site=richrow]){--paper:#f5efe3;--ink:#221d18;--panel:#fffaf0;
 body[data-site=richrow] header{background:var(--paper)}
 :root[data-artist-membership=true] body[data-site] header .brand,:root[data-artist-membership=true] body[data-site] header nav{display:flex}
 :root[data-artist-membership=true] body[data-site] footer{display:block}
+
+/* Golden Rama back-office readability: light controls on a dark header. */
+body[data-site="goldenrama440"][data-page="portal"] > header{
+  background:#171715!important;color:#fff8e9!important;border-bottom:1px solid #947953!important;
+}
+body[data-site="goldenrama440"][data-page="portal"] > header .brand,
+body[data-site="goldenrama440"][data-page="portal"] > header .brand small,
+body[data-site="goldenrama440"][data-page="portal"] > header nav a,
+body[data-site="goldenrama440"][data-page="portal"] > header #account,
+body[data-site="goldenrama440"][data-page="portal"] > header #account a{
+ color:#fff8e9!important;
+}
+body[data-site="goldenrama440"][data-page="portal"] > header button,
+body[data-site="goldenrama440"][data-page="portal"] > header .theme-toggle{
+ background:#302920!important;color:#fff8e9!important;border:1px solid #bda06e!important;
+}
+body[data-site="goldenrama440"][data-page="portal"] .sidebar-bottom #theme{
+ color:var(--ink)!important;background:var(--surface)!important;border:2px solid var(--gold)!important;
+}
+body[data-site="goldenrama440"][data-page="portal"] #portal-nav button{color:var(--ink)!important}
+body[data-site="goldenrama440"][data-page="portal"] #portal-nav button.active{background:var(--gold-light)!important;color:var(--ink)!important}
