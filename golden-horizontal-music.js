@@ -7,7 +7,7 @@
  if(!catalog?.tracks||!clips?.tracks||!exclusions?.titles)return;
  const stream=new Set(exclusions.titles.map(norm)),preview=new Map(clips.tracks.map(t=>[norm(t.title),t.preview]));
  const el=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n};
- const player=el('div','golden-sticky-player'),label=el('span','golden-playing-label','Choose a song preview'),audio=el('audio');player.hidden=true;audio.controls=true;audio.preload='none';audio.setAttribute('aria-label','Golden Rama audio player');
+ const player=el('div','golden-sticky-player'),label=el('span','golden-playing-label','Choose a song preview'),audio=el('audio');audio.controls=true;audio.preload='none';audio.setAttribute('aria-label','Golden Rama audio player');
  const close=el('button','','×');close.type='button';close.setAttribute('aria-label','Close player');close.onclick=()=>{audio.pause();player.hidden=true};player.append(label,audio,close);document.body.append(player);
  const shell=el('div','golden-horizontal-music');shell.id='golden-public-music';
  function row(title,items,isStream){const group=el('section','golden-track-section'),heading=el('h3','',title),hint=el('p','','Swipe or scroll sideways to browse tracks. Free 30-second previews.');const scroller=el('div','golden-track-scroller');scroller.tabIndex=0;scroller.setAttribute('aria-label',title+' horizontal tracks');
