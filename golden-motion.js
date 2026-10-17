@@ -35,4 +35,12 @@ const start=()=>{
  targets.forEach(el=>{el.classList.add('motion-reveal');observer.observe(el)});
 };
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+// Browser back/forward cache can restore an already dismissed intro.
+window.addEventListener('pageshow',e=>{
+ if(!e.persisted||!document.body.classList.contains('artist-home'))return;
+ const logo=document.querySelector('header .brand-logo-image');
+ const overlay=document.createElement('div');overlay.id='gr-intro';overlay.className='gr-intro';overlay.setAttribute('aria-label','Golden Rama 440 introduction');
+ const img=document.createElement('img');img.src='brand-logo.png?v=20260929';img.className='gr-intro-logo';img.alt='Golden Rama 440';overlay.append(img);document.body.prepend(overlay);
+ document.documentElement.classList.remove('gr-intro-done');intro();
+});
 })();
