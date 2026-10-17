@@ -1,14 +1,28 @@
 (()=>{'use strict';
 const intro=()=>{
- const overlay=document.getElementById('gr-intro');
- if(!overlay)return;
- let finished=false;const finish=()=>{if(finished)return;finished=true;overlay.classList.add('gr-exit');document.documentElement.classList.add('gr-intro-done');document.body.style.overflow='';setTimeout(()=>overlay.remove(),850)};
+ const overlay=document.getElementById('gr-intro'),logo=overlay?.querySelector('.gr-intro-logo');
+ if(!overlay||!logo)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- // Intro is skippable by click, keyboard, or reduced-motion preference.
- const skip=()=>finish();
- overlay.addEventListener('click',skip,{once:true});
- document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Enter')skip()},{once:true});
- setTimeout(finish,reduce?250:2550);
+ const header=document.querySelector('header .brand-logo-image');
+ let finished=false;
+ const finish=()=>{if(finished)return;finished=true;overlay.classList.add('gr-exit');document.documentElement.classList.add('gr-intro-done');setTimeout(()=>overlay.remove(),750)};
+ if(reduce){finish();return}
+ const fly=()=>{
+  if(finished)return;
+  const target=header?.getBoundingClientRect(),source=logo.getBoundingClientRect();
+  if(!target||!target.width||!target.height){finish();return}
+  const dx=(target.left+target.width/2)-(source.left+source.width/2);
+  const dy=(target.top+target.height/2)-(source.top+source.height/2);
+  overlay.classList.add('gr-flying');
+  logo.style.setProperty('--gr-dx',`${dx}px`);
+  logo.style.setProperty('--gr-dy',`${dy}px`);
+  logo.style.setProperty('--gr-scale',String(Math.min(target.width/source.width,target.height/source.height)));
+  setTimeout(finish,800);
+ };
+ overlay.addEventListener('click',finish,{once:true});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')finish()});
+ setTimeout(()=>{if(!finished){overlay.classList.add('gr-flash');setTimeout(fly,230)}},1450);
+ setTimeout(finish,4000);
 };
 const start=()=>{
  intro();

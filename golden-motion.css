@@ -27,3 +27,12 @@
 .gr-intro.gr-exit{opacity:0;visibility:hidden;pointer-events:none}
 @keyframes gr-intro-rise{0%{opacity:0;transform:scale(.65) rotate(-7deg);filter:blur(16px)}60%{opacity:1;filter:blur(0) drop-shadow(0 0 20px #d5ad6844)}100%{opacity:1;transform:scale(1);filter:drop-shadow(0 0 36px #d5ad6866)}}
 @media(prefers-reduced-motion:reduce){.gr-intro-logo{animation:none;opacity:1;transform:none}.gr-intro{transition:none}}
+
+/* Single centered mark, gold flash, then travel into header logo location. */
+.gr-intro{background:#000!important}
+.gr-intro::before{content:"";position:absolute;inset:0;opacity:0;pointer-events:none;background:radial-gradient(circle,#eacb8a66,transparent 42%)}
+.gr-intro.gr-flash::before{animation:gr-flash .23s ease-out forwards}
+.gr-intro.gr-flying .gr-intro-logo{animation:gr-fly .8s cubic-bezier(.65,.02,.2,1) forwards}
+@keyframes gr-flash{0%{opacity:0}35%{opacity:.85}100%{opacity:0}}
+@keyframes gr-fly{from{opacity:1;transform:scale(1)}to{opacity:1;transform:translate(var(--gr-dx),var(--gr-dy)) scale(var(--gr-scale));filter:none}}
+@media(prefers-reduced-motion:reduce){.gr-intro::before,.gr-intro.gr-flying .gr-intro-logo{animation:none}}
