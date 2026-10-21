@@ -34,7 +34,7 @@
         art.alt = 'Plaqes & Racks ' + track.collection + ' cover';
         art.loading = 'lazy';
         const name = make('h3', '', track.title);
-        const collection = make('p', '', 'Golden Rama · ' + track.collection);
+        const collection = make('p', '', (track.artist || 'Golden Rama') + ' · ' + track.collection);
         const status = make('span', 'golden-preview-status', 'Free preview coming soon');
         const open = make('a', 'golden-track-link', 'View track ↗');
         open.href = 'catalog.html?q=' + encodeURIComponent(track.title);
