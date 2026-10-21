@@ -11,7 +11,7 @@
     } catch { return null; }
   };
   const products = new Map();
-  const streamingOnly = new Set(["forbibbenbond4", "taken", "alienbrain", "cemetery440", "propagal", "cahcountgoldenramanickapella", "guhfidem", "moblandftyardiebritish440", "shewantitftdonyute", "workdatremixftpapajay", "clapitinnaface", "anyweh", "integrity", "liveinnait", "achancemaster", "gudgudmaster", "zombie", "divideconquerp2", "aroundtheworldv2", "capitalp", "whineponditipmix", "fucktonight", "lovetonight", "pollyclassicaldancemix440", "badmanrockfthottaball", "whinefimi"]);
+  const streamingOnly = new Set(["forbibbenbond", "taken", "alienbrain", "cemetery", "propagal", "cahcountgoldenramanickapella", "guhfidem", "moblandftyardiebritish", "shewantitftdonyute", "workdatremixftpapajay", "clapitinnaface", "anyweh", "integrity", "liveinnait", "achance", "gudgud", "zombie", "divideconquer", "aroundtheworld", "capitalp", "whineponditipmix", "fucktonight", "lovetonight", "pollyclassicaldancemix", "badmanrockfthottaball", "whinefimi"]);
   function enhance() {
     for (const card of grid.querySelectorAll('article')) {
       if (card.dataset.publicPreview === 'ready') continue;

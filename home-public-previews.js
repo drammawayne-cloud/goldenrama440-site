@@ -4,7 +4,7 @@
   if (!root) return;
   const key = value => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
   const products = new Map();
-  const streamingOnly = new Set(["forbibbenbond4", "taken", "alienbrain", "cemetery440", "propagal", "cahcountgoldenramanickapella", "guhfidem", "moblandftyardiebritish440", "shewantitftdonyute", "workdatremixftpapajay", "clapitinnaface", "anyweh", "integrity", "liveinnait", "achancemaster", "gudgudmaster", "zombie", "divideconquerp2", "aroundtheworldv2", "capitalp", "whineponditipmix", "fucktonight", "lovetonight", "pollyclassicaldancemix440"]);
+  const streamingOnly = new Set(["forbibbenbond", "taken", "alienbrain", "cemetery", "propagal", "cahcountgoldenramanickapella", "guhfidem", "moblandftyardiebritish", "shewantitftdonyute", "workdatremixftpapajay", "clapitinnaface", "anyweh", "integrity", "liveinnait", "achance", "gudgud", "zombie", "divideconquer", "aroundtheworld", "capitalp", "whineponditipmix", "fucktonight", "lovetonight", "pollyclassicaldancemix"]);
   const safe = value => {
     try { const u = new URL(value); return u.protocol === 'https:' && !u.username && !u.password ? u.href : null; }
     catch { return null; }
