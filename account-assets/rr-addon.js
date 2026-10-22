@@ -1,4 +1,4 @@
-import {goldenStore,musicReceipt} from './guest-music.js?v=20261022';
+import {goldenStore,musicReceipt} from './guest-music.js?v=20261022-cart';
 import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
 import {teamCrateCheckout,teamCrateReceipt,guestCrateOwnerPage} from './team-crate-checkout.js?v=20261010-cover';
 import {requestJSON} from './request-json.js?v=20261010-cover';
