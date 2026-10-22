@@ -19,4 +19,4 @@ body[data-page="store"] .golden-product.card>button{width:100%;min-height:44px;m
 @media(min-width:1080px){.golden-shop-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:480px){.golden-shop-grid{gap:12px}body[data-page="store"] .golden-product.card{padding:12px;gap:8px}body[data-page="store"] .golden-product.card>h2{font-size:.95rem}body[data-page="store"] .golden-product.card>p{font-size:.78rem}.golden-cart{padding:16px}}
 
-body[data-page="store"] main>.golden-shop-grid{padding:0;border:0}body[data-page="store"] main>.golden-cart{padding:20px}
+body[data-page="store"] #content>.golden-shop-grid{padding:0;border:0}body[data-page="store"] #content>.golden-cart{padding:20px}
