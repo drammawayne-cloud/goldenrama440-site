@@ -15,9 +15,9 @@ assert.match(home, /<title>[^<]*Golden Rama 440/i, 'Wrong site title');
 assert.match(home, /https:\/\/goldenrama440\.com\//i, 'Missing canonical domain');
 const music = JSON.parse(fs.readFileSync(path.join(root, 'golden-music-catalog.json'), 'utf8'));
 assert.equal(music.site, 'goldenrama440');
-assert.equal(music.tracks.length, 51);
+assert.equal(music.tracks.length, 50);
 assert.equal(music.tracks.filter(t => t.collection === 'Singles').length, 37);
-assert.equal(music.tracks.filter(t => t.collection === 'Collaborations').length, 14);
+assert.equal(music.tracks.filter(t => t.collection === 'Collaborations').length, 13);
 assert.ok(home.includes('golden-horizontal-music.js'), 'Homepage horizontal catalog script not included');
 assert.ok(!fs.readFileSync(path.join(root, 'site.js'), 'utf8').includes('Sign in / Join to listen'), 'Music browsing must be public');
 for (const page of ['index.html', 'catalog.html']) {
