@@ -1,9 +1,9 @@
 import {createLivePoster} from './live-poster.js?v=20261010-records';
-import {mountLiveGifts} from './live-gifts.js?v=20261010-gifts';
+import {mountLiveGifts} from './live-gifts.js?v=20261022-stay';
 import {liveShareButton} from './live-share.js?v=20261010-share';
-import {createCamera,createLiveMixer} from './live-camera.js?v=20261010-camera';
-import {createMediaSender} from './live-media-sender.js?v=20261010-stability';
-import {openHostGuests,openGuestConnection} from './live-guests.js?v=20261010-stability';
+import {createCamera,createLiveMixer} from './live-camera.js?v=20261022-stay';
+import {createMediaSender} from './live-media-sender.js?v=20261022-stay';
+import {openHostGuests,openGuestConnection} from './live-guests.js?v=20261022-stay';
 
 function element(tag,text,className){const node=document.createElement(tag);if(text)node.textContent=text;if(className)node.className=className;return node;}
 function button(text,action,className=''){const b=element('button',text,className);b.type='button';b.onclick=action;return b;}

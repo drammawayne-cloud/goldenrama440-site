@@ -1,4 +1,4 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
+import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261022-stay';
 // Bound the complete request, including reading the response body.
 export async function requestJSON(url,options={},timeoutMs=20000){
  const attempts=(options.method||'GET').toUpperCase()==='GET'?2:1;

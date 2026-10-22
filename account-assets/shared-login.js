@@ -1,7 +1,7 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
+import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261022-stay';
 import {brandSignIn} from './site-login-brand.js?v=20261010-final';
-import {accountBotCheck} from './bot-check.js?v=20261010-cover';
-import {waitForVerification} from './auth-verification.js?v=20261010-cover';
+import {accountBotCheck} from './bot-check.js?v=20261022-stay';
+import {waitForVerification} from './auth-verification.js?v=20261022-stay';
 // One accessible sign-in experience for artists, customers, staff and admins.
 // Authentication callbacks MUST resolve only after the real server accepts them.
 export function openSignIn({name='Rich Row',authenticate,signup,recover,resend,onSuccess,admin=false,role='customer',site='richrow'}){

@@ -1,4 +1,4 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
+import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261022-stay';
 export function giftAvailability({state,event}){if(event?.open===false)return 'closed';if(state==='live')return 'live';return event?.open||state==='preparing'?'reconnecting':'closed';}
 const catalog={like:{emoji:'👍',name:'Like',count:3},heart:{emoji:'❤️',name:'Heart',count:5},diamond:{emoji:'💎',name:'Diamond',count:8},money_rain:{emoji:'💸',name:'Money Rain',count:14},big_money_rain:{emoji:'💸',name:'Bigger Money Rain',count:26}};
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;};

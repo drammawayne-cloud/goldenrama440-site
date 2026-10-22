@@ -1,4 +1,4 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
+import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261022-stay';
 export async function contributorAdmin(ctx){
  const {area,el,api,button,field,submit,modal,upload,say}=ctx;
  const profiles=await api('admin/contributors');

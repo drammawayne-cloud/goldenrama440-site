@@ -1,4 +1,4 @@
-import {stripeCheckoutURL} from './team-crate-checkout.js';
+import {stripeCheckoutURL} from './team-crate-checkout.js?v=20261022-stay';
 import {CART_KEY,musicCart,cartCents,addSong,removeSong} from './golden-music-cart.js';
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,tokenPattern=/^[a-f0-9]{64}$/;
 const money=cents=>'$'+(cents/100).toFixed(2);

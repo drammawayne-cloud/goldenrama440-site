@@ -1,5 +1,5 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
-import {cartCount,addToCart} from './rr-cart-state.js?v=20261010-cover';
+import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261022-stay';
+import {cartCount,addToCart} from './rr-cart-state.js?v=20261022-stay';
 const allowed=new Set(['https://richrowrecords.com','https://www.richrowmusic.com','https://console.richrowrecords.com']);
 let origin=location.origin;allowed.add(origin);
 const send=()=>{if(allowed.has(origin)&&parent!==window)parent.postMessage({type:'rich-row-cart-count',count:cartCount()},origin)};

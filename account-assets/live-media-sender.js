@@ -1,4 +1,4 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
+import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261022-stay';
 // MediaRecorder may batch many seconds into one Blob. Preserve every byte in order,
 // split transport frames, and wait for backpressure instead of ending a healthy live.
 export function createMediaSender({socket,onError,interval=setInterval,clear=clearInterval}){

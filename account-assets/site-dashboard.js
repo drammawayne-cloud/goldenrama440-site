@@ -1,8 +1,8 @@
 import {renderPayouts} from './site-payouts.js?v=20261010-payouts1';
-import {siteFetch as fetch,currentSite as site,artistName,clearSession,authError} from './site-context.js';
-import {openSignIn} from './shared-login.js?v=20261010-final';
-import {handleAuthCallback} from './auth-verification.js';
-import {botCheck} from './bot-check.js';
+import {siteFetch as fetch,currentSite as site,artistName,clearSession,authError} from './site-context.js?v=20261022-stay';
+import {openSignIn} from './shared-login.js?v=20261022-stay';
+import {handleAuthCallback} from './auth-verification.js?v=20261022-stay';
+import {botCheck} from './bot-check.js?v=20261022-stay';
 import {el} from './rr-addon-render.js';
 const main=document.querySelector('main'),account=document.getElementById('account'),dialog=document.querySelector('dialog'),notice=document.getElementById('notice'),q=new URLSearchParams(location.search),mode=document.body.dataset.page;
 let config,permissions,token=sessionStorage.getItem('rr_artist_token')||'';

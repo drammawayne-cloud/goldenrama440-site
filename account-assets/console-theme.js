@@ -1,4 +1,4 @@
-import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261010-cover';
+import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261022-stay';
 const root=document.documentElement;
 const key='rr-console-theme';
 try{root.dataset.theme=localStorage.getItem(key)==='dark'?'dark':'light';}catch{root.dataset.theme='light';}
