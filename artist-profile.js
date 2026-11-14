@@ -15,22 +15,24 @@ function renderBlock(b){const box=node('section','','press-block');if(b.title)bo
 }
 for(const root of document.querySelectorAll('[data-artist-profile]')){
  const site=root.dataset.artistProfile||new URLSearchParams(location.search).get('artist');const artist=artists[site];if(!artist){root.replaceChildren(node('p','Choose an artist to view their biography.'));continue;}
+ const savedBiography=root.dataset.profileView==='biography'&&root.textContent.trim().length>200?root.innerHTML:null;
  const mode=root.dataset.profileView||'summary';const ownSite=document.body.dataset.site===site;
  const bioUrl=ownSite?'biography.html':'artist-biography.html?artist='+site,epkUrl=artist.url+'/epk.html';
  const portrait=photo(null,artist),copy=node('div','','artist-profile-copy');copy.append(node(mode==='summary'?'h2':'h1',artist.name));const desc=node('p','Explore published music, videos and artist updates.','artist-description');copy.append(desc);
  const links=node('nav','','artist-profile-links');links.setAttribute('aria-label',artist.name+' profile links');if(mode==='summary')links.append(anchor('Biography',bioUrl));else links.append(anchor('Explore the music',ownSite?'index.html#music':artist.url+'/#music'),anchor('Booking & press enquiries',ownSite?'contact.html':'https://richrowrecords.com/contact.html'));
- const columns=node('div','','artist-profile-columns');columns.append(portrait,copy);root.replaceChildren(columns);copy.append(links);
+ const columns=node('div','','artist-profile-columns');columns.append(portrait,copy);root.replaceChildren(columns);copy.append(links);if(savedBiography)root.innerHTML=savedBiography;
  async function load(){try{
  const [bio,epk]=await Promise.all([published(site+'-biography'),published(site+'-epk')]);
+ if(savedBiography&&bio){root.replaceChildren(columns);}
  const image=bio?.blocks.find(b=>b.type==='image'&&b.media)?.media;if(image)portrait.replaceWith(photo(image,artist));
  desc.textContent=bio?.blocks.find(b=>b.title==='Artist introduction')?.body||'Explore published music, videos and artist updates.';
  if(epk)links.append(anchor('EPK',mode==='biography'?'#artist-epk':epkUrl));
- if(mode!=='summary'){
+ if(mode!=='summary'&&(!savedBiography||bio)){
   if(mode==='biography'){const biography=node('section','','artist-biography');biography.append(node('h2','Biography'));for(const b of bio?.blocks||[])if(b.type!=='image'&&b.title!=='Artist introduction')biography.append(renderBlock(b));if(!bio)biography.append(node('p','A full biography has not been published yet. For artist information, use the booking and press enquiries link above.'));root.append(biography);}
   const press=node('section','','artist-epk');press.id='artist-epk';press.append(node('h2','Electronic Press Kit'));
   if(epk){for(const b of epk.blocks)press.append(renderBlock(b));const print=node('button','Print / save EPK as PDF');print.type='button';print.className='press-print';print.onclick=()=>window.print();press.append(print,anchor('Open shareable EPK',epkUrl));}
   else if(mode==='epk')press.append(node('p','The artist’s press kit has not been published yet.'));
-  if(epk||mode==='epk')root.append(press);
+  if(epk||mode==='epk')if(epk||mode==='epk')root.append(press);
  }
  }catch{const message=node('p','Artist information is temporarily unavailable. Please try again later.');message.setAttribute('role','status');root.append(message);}}
  load();
