@@ -20,3 +20,5 @@ jobs:
         run: node tests/site-smoke.cjs
       - name: Check persistent sessions and logout
         run: node --test tests/persistent-session.test.cjs
+      - name: Check content update media
+        run: node --test tests/content-update.test.cjs

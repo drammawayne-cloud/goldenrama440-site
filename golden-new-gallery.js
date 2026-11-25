@@ -6,7 +6,7 @@
   const data=await r.json();if(!Array.isArray(data.photos))return;
   const gallery=document.createElement('div');gallery.className='golden-new-gallery';gallery.id='golden-new-gallery';
   for(const [i,path] of data.photos.entries()){
-   if(!/^assets\/portraits\/whatsapp-2026-10-17\/golden-rama-\d{2}\.jpg$/.test(path))continue;
+   if(!/^assets\/portraits\/(?:whatsapp-2026-10-17|content-2026-11-25)\/golden-rama-\d{2}\.jpg$/.test(path))continue;
    const a=document.createElement('a');a.href=path;a.target='_blank';a.rel='noopener';a.setAttribute('aria-label','View Golden Rama photo '+(i+1));
    const img=document.createElement('img');img.src=path;img.alt='Golden Rama official portrait '+(i+1);img.loading='lazy';a.append(img);gallery.append(a);
   }

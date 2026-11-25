@@ -1,0 +1,62 @@
+{
+  "site": "goldenrama440",
+  "updated": "2026-11-25",
+  "videos": [
+    {
+      "id": "golden-rama-video-01",
+      "title": "Golden Rama \u2014 Video 01",
+      "artist": "Golden Rama",
+      "src": "assets/updates/2026-11-25/golden-rama-video-01.mp4",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-01.jpg",
+      "duration": 180.91
+    },
+    {
+      "id": "golden-rama-video-02",
+      "title": "Golden Rama \u2014 Video 02",
+      "artist": "Golden Rama",
+      "src": "assets/updates/2026-11-25/golden-rama-video-02.mp4",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-02.jpg",
+      "duration": 206.55
+    },
+    {
+      "id": "golden-rama-video-03",
+      "title": "Fuck Tonight",
+      "artist": "Golden Rama",
+      "src": "assets/updates/2026-11-25/golden-rama-video-03.mp4",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-03.jpg",
+      "duration": 168.31
+    },
+    {
+      "id": "golden-rama-video-04",
+      "title": "Golden Rama \u2014 Video 04",
+      "artist": "Golden Rama",
+      "src": "assets/updates/2026-11-25/golden-rama-video-04.mp4",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-04.jpg",
+      "duration": 149.07
+    },
+    {
+      "id": "golden-rama-video-05",
+      "title": "Taken",
+      "artist": "Golden Rama",
+      "src": "assets/updates/2026-11-25/golden-rama-video-05.mp4",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-05.jpg",
+      "duration": 211.27
+    },
+    {
+      "id": "golden-rama-video-06",
+      "title": "Golden Rama \u2014 Video 06",
+      "artist": "Golden Rama",
+      "src": "assets/updates/2026-11-25/golden-rama-video-06.mp4",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-06.jpg",
+      "duration": 219.39
+    },
+    {
+      "id": "golden-rama-video-07",
+      "title": "Everything Inna Place",
+      "artist": "Golden Rama",
+      "src": "assets/updates/2026-11-25/golden-rama-video-07.mp4",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-07.jpg",
+      "duration": 175.34
+    }
+  ]
+}
