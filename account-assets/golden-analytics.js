@@ -1,5 +1,5 @@
 (() => {
- if(!['goldenrama440.com','www.goldenrama440.com'].includes(location.hostname)||navigator.globalPrivacyControl||navigator.doNotTrack==='1'||window.doNotTrack==='1'||/^\/(owner|post-now|account|settings|app-login|payouts|addons)(\/|\.|$)/i.test(location.pathname))return;
+ if(!['goldenrama440.com','www.goldenrama440.com'].includes(location.hostname)||navigator.globalPrivacyControl||navigator.doNotTrack==='1'||window.doNotTrack==='1'||/^\/(owner|post-now|account|settings|app-login|login|portal|payouts|addons)(\/|\.|$)/i.test(location.pathname))return;
  let session;try{session=sessionStorage.getItem('golden.activity.session')||crypto.randomUUID();sessionStorage.setItem('golden.activity.session',session);}catch{return;}
  const endpoint='https://console.richrowrecords.com/api/addon/golden-owner/event';
  function path(){const u=new URL(location.href);if(/^\/post\/?$/.test(u.pathname)){for(const k of ['id','video']){const v=u.searchParams.get(k);if(v&&/^[a-z0-9-]{1,70}$/i.test(v))return u.pathname+'?'+k+'='+encodeURIComponent(v);}}return u.pathname;}
