@@ -1,0 +1,11 @@
+(() => {
+ if(!['goldenrama440.com','www.goldenrama440.com'].includes(location.hostname)||navigator.globalPrivacyControl||navigator.doNotTrack==='1'||window.doNotTrack==='1'||/^\/(owner|post-now|account|settings|app-login|payouts|addons)(\/|\.|$)/i.test(location.pathname))return;
+ let session;try{session=sessionStorage.getItem('golden.activity.session')||crypto.randomUUID();sessionStorage.setItem('golden.activity.session',session);}catch{return;}
+ const endpoint='https://console.richrowrecords.com/api/addon/golden-owner/event';
+ function path(){const u=new URL(location.href);if(/^\/post\/?$/.test(u.pathname)){for(const k of ['id','video']){const v=u.searchParams.get(k);if(v&&/^[a-z0-9-]{1,70}$/i.test(v))return u.pathname+'?'+k+'='+encodeURIComponent(v);}}return u.pathname;}
+ let last=new Map();function send(kind,target=''){const key=kind+':'+target,at=Date.now();if(at-(last.get(key)||0)<1500)return;last.set(key,at);if(last.size>150)last=new Map([[key,at]]);void fetch(endpoint,{method:'POST',mode:'cors',credentials:'omit',keepalive:true,headers:{'Content-Type':'application/json','X-Rich-Row-Request':'1'},body:JSON.stringify({id:crypto.randomUUID(),session,kind,path:path(),target})}).catch(()=>{});}
+ send('pageview');
+ document.addEventListener('click',event=>{if(!event.isTrusted)return;const node=event.target.closest?.('a,button');if(!node||node.closest('form'))return;if(node.matches('a')){let u;try{u=new URL(node.href,location.href);}catch{return;}if(!['https:','http:'].includes(u.protocol))return;send('click',u.origin===location.origin?u.pathname+(u.pathname==='/post/'?u.search:''):'outbound:'+u.hostname);}else{const name=node.getAttribute('data-analytics')||node.id;if(name&&/^[a-z0-9_-]{1,80}$/i.test(name))send('click','button:'+name);}});
+ document.addEventListener('play',event=>{const media=event.target;if(media.matches?.('audio,video')){const src=media.currentSrc||media.src||'';let name=media.tagName.toLowerCase();try{const u=new URL(src,location.href);if(u.origin===location.origin){const file=u.pathname.split('/').pop().replace(/\.[^.]+$/,'');if(/^[a-z0-9_-]{1,80}$/i.test(file))name=file;}}catch{}send('media_play','media:'+name);}},true);
+ window.addEventListener('golden-share',()=>send('share','share:post'));
+})();
