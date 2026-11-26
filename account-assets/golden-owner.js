@@ -1,3 +1,4 @@
+import {accountIdentity} from './account-view.js?v=20261125-library1';
 import {siteFetch,saveSession,clearSession,apiOrigin} from './site-context.js?v=20261022-stay';
 import {openSignIn} from './shared-login.js?v=20261022-stay';
 import {botCheck} from './bot-check.js?v=20261022-stay';
@@ -9,14 +10,14 @@ const button=(label,fn)=>el('button',{type:'button',onclick:async()=>{try{await 
 const link=(label,href)=>el('a',{class:'gp-link',href},label);
 const number=n=>Number(n||0).toLocaleString();
 const date=v=>v?new Date(v).toLocaleDateString():'—';
-let days=30,page=0,search='',busy=false;
-async function api(path){const r=await siteFetch('/api/addon/golden-owner/'+path,{headers:{Authorization:'Bearer '+token()},signal:AbortSignal.timeout(30000)});const data=await r.json();if(!r.ok)throw Object.assign(Error(data.error||'The dashboard could not load.'),{status:r.status});return data;}
+let days=30,page=0,search='',generation=0;
+async function api(path,data){const owner=accountIdentity(token());const target=path.startsWith('golden-library/')?path:'golden-owner/'+path;const r=await siteFetch('/api/addon/'+target,{method:data?'POST':'GET',body:data?JSON.stringify(data):undefined,headers:{Authorization:'Bearer '+token(),...(data?{'Content-Type':'application/json','X-Rich-Row-Request':'1'}:{})},signal:AbortSignal.timeout(30000)});const result=await r.json();if(owner!==accountIdentity(token()))throw Error('Your account changed. Refresh the dashboard.');if(!r.ok)throw Object.assign(Error(result.error||'The dashboard could not load.'),{status:r.status});return result;}
 async function login(){const c=await(await fetch(apiOrigin+'/api/addon/config')).json();const auth=async(path,input)=>{const captcha=input.captchaToken||await botCheck(c.turnstileSiteKey,'account');const data={...input};delete data.captchaToken;const r=await fetch(c.supabaseUrl+'/auth/v1/'+path,{method:'POST',headers:{apikey:c.publishableKey,'Content-Type':'application/json'},body:JSON.stringify({...data,...(captcha?{gotrue_meta_security:{captcha_token:captcha}}:{})})});const b=await r.json();if(!r.ok)throw Error(b.msg||b.error_description||b.message||'Sign-in failed.');return b;};openSignIn({name:'Golden Rama 440',site:'goldenrama440',role:'artist',authenticate:d=>auth('token?grant_type=password',d),recover:d=>auth('recover?redirect_to='+encodeURIComponent(location.origin+'/account.html?recovery=1'),d),signup:d=>auth('signup?redirect_to='+encodeURIComponent(location.origin+'/account.html?verified=1'),d),resend:d=>auth('resend',{...d,type:'signup'}),onSuccess:async session=>{saveSession(session);await load();}});}
 function table(headers,rows){return el('div',{class:'go-table-wrap'},el('table',{class:'go-table'},el('thead',{},el('tr',{},headers.map(h=>el('th',{scope:'col'},h)))),el('tbody',{},rows.length?rows.map(row=>el('tr',{},row.map(c=>el('td',{},c)))):el('tr',{},el('td',{colSpan:headers.length},'No activity recorded for this period.')))));}
 const stats=items=>el('div',{class:'go-stats'},items.map(([label,value,note])=>el('article',{class:'go-stat'},el('span',{},label),el('strong',{},number(value)),note?el('span',{},note):null)));
 function section(title,...children){return el('section',{class:'go-section'},el('h2',{},title),...children);}
-async function load(){if(busy)return;busy=true;say('');try{if(!token()){root.replaceChildren(el('p',{class:'gp-eyebrow'},'PRIVATE ARTIST & MANAGER ACCESS'),el('h1',{},'Your audience. Your business.'),el('p',{class:'gp-copy'},'Sign in with your approved Golden Rama artist or manager account to see subscribers and website activity.'),button('Sign in',login),link('Post Now','/post-now/'));return;}
- const [a,m]=await Promise.all([api('activity?days='+days),api('subscribers?page='+page+'&search='+encodeURIComponent(search))]);
+async function load(){const request=++generation;say('');try{if(!token()){root.replaceChildren(el('p',{class:'gp-eyebrow'},'PRIVATE ARTIST & MANAGER ACCESS'),el('h1',{},'Your audience. Your business.'),el('p',{class:'gp-copy'},'Sign in with your approved Golden Rama artist or manager account to see subscribers and website activity.'),button('Sign in',login),link('Post Now','/post-now/'));return;}
+ const [a,m,catalog]=await Promise.all([api('activity?days='+days),api('subscribers?page='+page+'&search='+encodeURIComponent(search)),api('golden-library/catalog')]);if(request!==generation)return;
  root.replaceChildren(el('p',{class:'gp-eyebrow'},'GOLDEN RAMA / PRIVATE OWNER DASHBOARD'),el('h1',{},'Your audience. In view.'),el('div',{class:'gp-actions'},link('Post Now','/post-now/'),link('View website','/'),link('Settings & team','/settings.html'),button('Refresh',load),button('Sign out',()=>{clearSession();return load();})));
  root.append(section('Subscribers',stats([['Registered accounts',m.registered],['Active paid subscribers',m.active],['Tier A',m.tiers.a],['Tier B',m.tiers.b],['Tier C',m.tiers.c]]),el('p',{class:'go-note'},'Active subscribers have an unexpired paid membership in the latest recorded billing status. Website and production Apple memberships are combined; each account counts once at its highest tier. Test purchases are excluded.')));
  const range=el('select',{'aria-label':'Activity period',onchange:()=>{days=Number(range.value);void load();}},[7,30,90].map(v=>el('option',{value:String(v),selected:v===days},'Last '+v+' days')));
@@ -26,5 +27,19 @@ async function load(){if(busy)return;busy=true;say('');try{if(!token()){root.rep
  const input=el('input',{type:'search',value:search,maxLength:100,placeholder:'Name or email','aria-label':'Search subscribers'});const form=el('form',{class:'go-controls',onsubmit:e=>{e.preventDefault();search=input.value.trim();page=0;void load();}},el('label',{class:'gp-field'},'Find a subscriber',input),el('button',{type:'submit'},'Search'));
  const memberRows=m.items.map(x=>[el('span',{},x.name||'Member',el('small',{},x.email||'No email')),x.plan?'Tier '+x.plan.toUpperCase():'No active plan',el('div',{},x.subscriptions.length?x.subscriptions.map(s=>el('div',{class:'go-subscription'},(s.provider==='apple'?'Apple':'Website')+' · Tier '+String(s.plan).toUpperCase()+' · '+s.status,el('small',{},'Access through '+date(s.expires_at)))):'No subscription recorded'),date(x.joined_at)]);
  const nav=el('div',{class:'gp-actions'},el('span',{},number(m.matching)+' matching accounts · Page '+(page+1)));if(page>0)nav.append(button('Previous',()=>{page--;return load();}));if((page+1)*50<m.matching)nav.append(button('Next',()=>{page++;return load();}));root.append(section('Subscriber list',form,table(['Member','Current access','Subscriptions','Joined'],memberRows),nav));
- }catch(e){root.replaceChildren(el('h1',{},'Owner dashboard'),el('p',{role:'alert'},e.message),button(e.status===401?'Sign in again':'Try again',e.status===401?login:load),link('My account','/account.html'));}finally{busy=false;}}
+ root.append(memberSelection(catalog.items));
+ }catch(e){if(request!==generation)return;root.replaceChildren(el('h1',{},'Owner dashboard'),el('p',{role:'alert'},e.message),button(e.status===401?'Sign in again':'Try again',e.status===401?login:load),link('My account','/account.html'));}}
+
+function memberSelection(items){
+ const controls=items.map(item=>{
+  const toggle=el('input',{type:'checkbox',checked:item.allow_b,'aria-label':'Include '+item.title+' in Tier B'});
+  toggle.addEventListener('change',async()=>{
+   const next=toggle.checked;toggle.disabled=true;
+   try{await api('golden-library/selection',{id:item.id,allow_b:next});say(item.title+(next?' is included in Tier B.':' is available to Tier A only.'));}
+   catch(e){toggle.checked=!next;say(e.message);}finally{toggle.disabled=false;}
+  });
+  return el('label',{class:'go-selection'},toggle,el('span',{},item.title,el('small',{},item.ready?'Protected recording connected':'Recording unavailable')));
+ });
+ return section('Member music access',el('p',{class:'go-note'},'Tier A includes all 26 member recordings. Select the songs Tier B may stream. Tier C includes previews. Membership does not include downloads; the 24 purchased releases stay separate.'),el('div',{class:'go-selection-grid'},...controls));
+}
 void load();
