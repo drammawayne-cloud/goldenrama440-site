@@ -1,5 +1,5 @@
 import {siteFetch,saveSession,clearSession,apiOrigin} from './site-context.js?v=20261022-stay';
-import {openSignIn} from './shared-login.js?v=20261022-stay';
+import {openSignIn} from './shared-login.js?v=20261126-account2';
 import {botCheck} from './bot-check.js?v=20261022-stay';
 
 const root=document.querySelector('[data-golden-posts]'),mode=root?.dataset.goldenPosts;

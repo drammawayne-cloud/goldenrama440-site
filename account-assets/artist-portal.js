@@ -4,7 +4,7 @@ import {liveShareButton} from './live-share.js?v=20261010-cover';
 import {mountMediaPlayer} from './mediamtx-player.js?v=20261022-stay';
 import {openPhoneStudio,openGuestStudio} from './browser-live.js?v=20261022-stay';
 import {botCheck} from './bot-check.js?v=20261022-stay';
-import {openSignIn} from './shared-login.js?v=20261022-stay';
+import {openSignIn} from './shared-login.js?v=20261126-account2';
 import {el} from './rr-addon-render.js?v=20261010-cover';
 const brands={richrow:['Rich Row Records','https://richrowrecords.com'],waynekastro:['Wayne Kastro','https://waynekastro.com'],dracodon17:['Draco Don17','https://dracodon17.com'],goldenrama440:['Golden Rama','https://goldenrama440.com']};
 const q=new URLSearchParams(location.search),site=Object.hasOwn(brands,q.get('site'))?q.get('site'):'richrow',ownerMode=q.get('manage')==='1',admin=false;

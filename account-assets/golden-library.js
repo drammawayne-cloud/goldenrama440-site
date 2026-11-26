@@ -1,6 +1,6 @@
 import {accountIdentity} from './account-view.js?v=20261125-library1';
 import {siteFetch,saveSession,clearSession,apiOrigin} from './site-context.js?v=20261022-stay';
-import {openSignIn} from './shared-login.js?v=20261022-stay';
+import {openSignIn} from './shared-login.js?v=20261126-account2';
 import {botCheck} from './bot-check.js?v=20261022-stay';
 const root=document.querySelector('[data-golden-library]'),status=document.getElementById('post-status');
 let generation=0;
