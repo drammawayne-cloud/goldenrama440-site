@@ -1,7 +1,6 @@
+import {openGoldenSignIn} from './golden-sign-in.js?v=20261128';
 import {accountIdentity} from './account-view.js?v=20261125-library1';
-import {siteFetch,saveSession,clearSession,apiOrigin} from './site-context.js?v=20261022-stay';
-import {openSignIn} from './shared-login.js?v=20261126-account2';
-import {botCheck} from './bot-check.js?v=20261022-stay';
+import {siteFetch,clearSession} from './site-context.js?v=20261022-stay';
 const root=document.querySelector('[data-golden-owner]');
 const token=()=>sessionStorage.getItem('rr_artist_token')||'';
 const el=(tag,attrs={},...children)=>{const n=document.createElement(tag);for(const[k,v]of Object.entries(attrs)){if(k.startsWith('on'))n.addEventListener(k.slice(2),v);else if(k==='class')n.className=v;else if(k in n)n[k]=v;else n.setAttribute(k,v);}n.append(...children.flat().filter(v=>v!==null&&v!==undefined));return n;};
@@ -12,7 +11,7 @@ const number=n=>Number(n||0).toLocaleString();
 const date=v=>v?new Date(v).toLocaleDateString():'—';
 let days=30,page=0,search='',generation=0;
 async function api(path,data){const owner=accountIdentity(token());const target=(path.startsWith('golden-library/')||path.startsWith('golden-account/'))?path:'golden-owner/'+path;const r=await siteFetch('/api/addon/'+target,{method:data?'POST':'GET',body:data?JSON.stringify(data):undefined,headers:{Authorization:'Bearer '+token(),...(data?{'Content-Type':'application/json','X-Rich-Row-Request':'1'}:{})},signal:AbortSignal.timeout(30000)});const result=await r.json();if(owner!==accountIdentity(token()))throw Error('Your account changed. Refresh the dashboard.');if(!r.ok)throw Object.assign(Error(result.error||'The dashboard could not load.'),{status:r.status});return result;}
-async function login(){const c=await(await fetch(apiOrigin+'/api/addon/config')).json();const auth=async(path,input)=>{const captcha=input.captchaToken||await botCheck(c.turnstileSiteKey,'account');const data={...input};delete data.captchaToken;const r=await fetch(c.supabaseUrl+'/auth/v1/'+path,{method:'POST',headers:{apikey:c.publishableKey,'Content-Type':'application/json'},body:JSON.stringify({...data,...(captcha?{gotrue_meta_security:{captcha_token:captcha}}:{})})});const b=await r.json();if(!r.ok)throw Error(b.msg||b.error_description||b.message||'Sign-in failed.');return b;};openSignIn({name:'Golden Rama 440',site:'goldenrama440',role:'artist',authenticate:d=>auth('token?grant_type=password',d),recover:d=>auth('recover?redirect_to='+encodeURIComponent(location.origin+'/account.html?recovery=1'),d),signup:d=>auth('signup?redirect_to='+encodeURIComponent(location.origin+'/account.html?verified=1'),d),resend:d=>auth('resend',{...d,type:'signup'}),onSuccess:async session=>{saveSession(session);await load();}});}
+async function login(){return openGoldenSignIn({role:'artist',onSuccess:()=>load()});}
 function table(headers,rows){return el('div',{class:'go-table-wrap'},el('table',{class:'go-table'},el('thead',{},el('tr',{},headers.map(h=>el('th',{scope:'col'},h)))),el('tbody',{},rows.length?rows.map(row=>el('tr',{},row.map(c=>el('td',{},c)))):el('tr',{},el('td',{colSpan:headers.length},'No activity recorded for this period.')))));}
 const stats=items=>el('div',{class:'go-stats'},items.map(([label,value,note])=>el('article',{class:'go-stat'},el('span',{},label),el('strong',{},number(value)),note?el('span',{},note):null)));
 function section(title,...children){return el('section',{class:'go-section'},el('h2',{},title),...children);}

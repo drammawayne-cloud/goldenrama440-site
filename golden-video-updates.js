@@ -14,7 +14,7 @@
         return response.json();
       });
       const data = await pending;
-      const {songNotes} = await import('./account-assets/song-notes.js?v=20261126');
+      const {songNotes} = await import('./account-assets/song-notes.js?v=20261128-reactions');
       const section = document.getElementById('videos');
       if (!section || section.querySelector('.golden-video-updates')) return;
       if (data.site !== 'goldenrama440' || !Array.isArray(data.videos)) throw new Error('Invalid video collection');
@@ -29,7 +29,7 @@
         card.className = 'golden-video-card';
         card.dataset.artist = 'Golden Rama';
         const title = document.createElement('h3');
-        title.textContent = item.title;
+        const titleLink=document.createElement('a');titleLink.textContent=item.title;titleLink.href=item.postUrl||'/post/?video='+encodeURIComponent(item.id);title.append(titleLink);
         const video = document.createElement('video');
         video.controls = true;
         video.playsInline = true;

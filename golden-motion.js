@@ -20,7 +20,7 @@ const intro=()=>{
   overlay.classList.add('gr-detonating');
   const draw=now=>{
    if(finished)return;
-   const t=(now-started)/1000;ctx.clearRect(0,0,w,h);
+   const t=Math.max(0,(now-started)/1000);ctx.clearRect(0,0,w,h);
    ctx.globalCompositeOperation='source-over';
    for(const p of smoke){const d=p.d*t,px=x+Math.cos(p.a)*d,py=y+Math.sin(p.a)*d-t*65,r=p.r*(.35+t*1.7);const g=ctx.createRadialGradient(px,py,0,px,py,r);g.addColorStop(0,`rgba(113,85,48,${Math.max(0,.35*(1-t/1.3))})`);g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.beginPath();ctx.arc(px,py,r,0,Math.PI*2);ctx.fill()}
    ctx.globalCompositeOperation='lighter';

@@ -2,7 +2,7 @@
 (async()=>{
  await new Promise(resolve=>{if(window.RR_STUDIO_PAGE){window.addEventListener('rr:page-ready',resolve,{once:true});}else resolve();});
  const section=document.getElementById('music');if(!section)return;
- const {songNotes}=await import('./account-assets/song-notes.js?v=20261126');
+ const {songNotes}=await import('./account-assets/song-notes.js?v=20261128-reactions');
  const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const [catalog,clips,exclusions]=await Promise.all(['golden-music-catalog.json','golden-preview-manifest.json','golden-stream-only.json'].map(async path=>{const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw Error('Catalog unavailable');return r.json()})).catch(()=>[null,null,null]);
  if(!catalog?.tracks||!clips?.tracks||!exclusions?.titles)return;
@@ -10,7 +10,7 @@
  const el=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n};
  const shell=el('div','golden-horizontal-music');shell.id='golden-public-music';
  function row(title,items,isStream){const group=el('section','golden-track-section'),heading=el('h3','',title),hint=el('p','','Swipe or scroll sideways to browse tracks. Free 30-second previews.');const scroller=el('div','golden-track-scroller');scroller.tabIndex=0;scroller.setAttribute('aria-label',title+' horizontal tracks');
- for(const t of items){const card=el('article','golden-track-tile'),img=el('img');img.src=t.art;img.loading='lazy';img.alt=t.title+' cover';const name=el('h4','',t.title);const artist=t.artist?el('p','golden-track-artist',t.artist):null;const buttons=el('div','golden-track-actions');const clip=preview.get(norm(t.title));if(clip&&/^previews\/[\w.-]+\.mp3$/.test(clip)){const play=el('button','','▶ Preview');play.type='button';play.onclick=()=>{const url=new URL(clip,location.href);if(url.origin!==location.origin)return;document.dispatchEvent(new CustomEvent('golden:preview',{detail:{url:url.href,title:t.title,artist:t.artist||'',art:t.art||'',riddim:t.riddim||'',producer:t.producer||''}}));};buttons.append(play)}
+ for(const t of items){const card=el('article','golden-track-tile'),img=el('img');img.src=t.art;img.loading='lazy';img.alt=t.title+' cover';const name=el('h4'),titleLink=el('a','',t.title);titleLink.href=t.postUrl;name.append(titleLink);const artist=t.artist?el('p','golden-track-artist',t.artist):null;const buttons=el('div','golden-track-actions');const clip=preview.get(norm(t.title));if(clip&&/^previews\/[\w.-]+\.mp3$/.test(clip)){const play=el('button','','▶ Preview');play.type='button';play.onclick=()=>{const url=new URL(clip,location.href);if(url.origin!==location.origin)return;document.dispatchEvent(new CustomEvent('golden:preview',{detail:{url:url.href,title:t.title,artist:t.artist||'',art:t.art||'',riddim:t.riddim||'',producer:t.producer||''}}));};buttons.append(play)}
  const link=el('a','',isStream?'Membership streaming ↗':'Shop release ↗');link.href=isStream?'membership.html':'addons/store/?site=goldenrama440&product='+encodeURIComponent(t.title);buttons.append(link);card.append(img,name);if(artist)card.append(artist);card.append(buttons);const notes=songNotes(t);if(notes)card.append(notes);scroller.append(card)}group.append(heading,hint,scroller);return group}
  const paid=catalog.tracks.filter(t=>!stream.has(norm(t.title))),streaming=catalog.tracks.filter(t=>stream.has(norm(t.title)));
  shell.append(row('Music store · Purchasable releases',paid,false),row('Streaming links · Members',streaming,true));

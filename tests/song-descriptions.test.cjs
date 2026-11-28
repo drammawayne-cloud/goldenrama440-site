@@ -25,7 +25,7 @@ test('all 50 songs and seven videos have substantial three-paragraph description
 test('song descriptions flow as three paragraphs without repeated subheadings in cards and full posts',async()=>{
   const previousDocument=global.document;
   class Element {
-    constructor(tag){this.tagName=tag;this.children=[];this.textContent='';this.className='';}
+    constructor(tag){this.tagName=tag;this.children=[];this.textContent='';this.className='';this.dataset={};}
     append(...children){this.children.push(...children);}
   }
   const descendants=node=>node.children.flatMap(child=>[child,...descendants(child)]);
@@ -39,6 +39,17 @@ test('song descriptions flow as three paragraphs without repeated subheadings in
       assert.deepEqual(nodes.filter(node=>node.tagName==='p'&&!node.className).map(node=>node.textContent),item.description,item.title);
       assert.equal(nodes.filter(node=>node.className==='golden-song-author').length,1,item.title);
       assert.equal(nodes.filter(node=>node.className==='golden-song-dedication').length,item.dedication?1:0,item.title);
+      const brief=nodes.find(node=>node.className==='golden-song-card-brief');
+      if(!expanded&&item.reactionId.startsWith('golden-rama-video-')){
+        assert.ok(brief?.textContent.length>=30,item.title+' has a visible card preview');
+        assert.ok(brief.textContent.length<=260,item.title+' stays brief');
+        if(item.reactionId==='golden-rama-video-01'){
+          const {briefDescription}=await import('../account-assets/reaction-format.js');
+          assert.equal(brief.textContent,briefDescription(item.description[0]));
+          assert.equal((brief.textContent.match(/[.!?](?:\s|$)/g)||[]).length,1,'Alqual card uses one sentence');
+          assert.equal(nodes.find(node=>node.className==='golden-song-dedication').textContent,item.dedication);
+        }
+      }else assert.equal(brief,undefined);
     }
   }finally{
     if(previousDocument===undefined)delete global.document;else global.document=previousDocument;

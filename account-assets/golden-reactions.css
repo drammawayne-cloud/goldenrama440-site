@@ -1,0 +1,18 @@
+.golden-reactions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:16px 0;color:inherit}
+.golden-reactions button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:48px;min-height:44px;padding:8px 13px;border:1px solid currentColor;border-radius:999px;background:transparent;color:inherit;font:600 14px/1.2 system-ui;cursor:pointer}
+.golden-reactions svg,.golden-share-dialog svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.golden-reactions button[aria-pressed=true],.golden-reactions button[data-loved=true]{color:var(--gold,#e1bd73);background:color-mix(in srgb,currentColor 10%,transparent)}
+.golden-reactions button:focus-visible,.golden-share-dialog button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.golden-reactions button:active{transform:scale(.94)}
+.golden-reaction-status{font-size:13px;line-height:1.5;flex-basis:100%;margin:0!important}
+.golden-reaction-status:empty{display:none}
+.golden-share-dialog{max-width:calc(100vw - 32px);border:1px solid var(--line,#807057);border-radius:16px;padding:22px;background:var(--panel,#27241f);color:var(--ink,#fff5e2)}
+.golden-share-dialog::backdrop{background:#0009}
+.golden-share-dialog .golden-share-options{display:flex;gap:14px}
+.golden-share-dialog button{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid currentColor;border-radius:50%;background:transparent;color:inherit;font:700 24px system-ui;cursor:pointer}
+.golden-share-dialog button[data-close]{margin:0 0 18px auto;display:flex}
+.golden-post-art{display:block;width:100%;max-height:70vh;object-fit:contain;border-radius:12px;background:#080808}
+.golden-post-description{font-size:1.05rem;line-height:1.8;max-width:72ch;margin:24px 0}
+.golden-post-description p{margin:0 0 1.25em}
+.golden-post-byline{font-size:.9rem;color:var(--muted);margin:18px 0}
+@media(prefers-reduced-motion:reduce){.golden-reactions button:active{transform:none}}

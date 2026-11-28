@@ -1,4 +1,5 @@
 import {siteFetch as fetch,currentSite,apiOrigin,localLink,startGoogle,clearSession,saveSession} from './site-context.js?v=20261022-stay';
+if(window.GoldenTheme){window.GoldenTheme.mount();}else{
 const root=document.documentElement;
 const key='rr-console-theme';
 const membership=location.pathname==='/addons/membership';
@@ -15,3 +16,5 @@ if(root.dataset.goldenChat!=='true'&&!membership){
  document.querySelector('header')?.append(button);
 }
 
+
+}
