@@ -1,0 +1,16 @@
+.golden-song-notes{font-size:1rem;line-height:1.7;overflow-wrap:anywhere;text-align:left;margin-top:18px}
+.golden-song-notes summary{cursor:pointer;min-height:44px;box-sizing:border-box;padding:10px 0;font-weight:600;color:inherit}
+.golden-song-notes p{margin:14px 0}
+.golden-song-notes .golden-song-author{font-size:.875rem;color:inherit;opacity:.82;font-weight:600}
+.golden-song-notes .golden-song-dedication{padding:14px 16px;border-left:3px solid #d9b874;background:#b5933920;font-weight:600}
+.golden-song-notes :focus-visible{outline:2px solid #d9b874;outline-offset:4px}
+.golden-video-versions{display:inline-flex;flex-wrap:wrap;gap:5px;padding:5px;margin:12px 0 4px;border:1px solid #b99450;border-radius:999px;background:linear-gradient(145deg,#191715,#080808);box-shadow:0 4px 18px #0003}
+.golden-video-versions button{appearance:none;min-height:44px;min-width:112px;padding:10px 24px!important;border:1px solid transparent!important;border-radius:999px!important;background:transparent!important;color:#ead4a8!important;font:inherit;font-weight:700!important;cursor:pointer;transition:background .15s,box-shadow .15s}
+.golden-video-versions button[aria-pressed="true"]{background:linear-gradient(135deg,#f6e3ad,#cba65d)!important;color:#171107!important;box-shadow:0 2px 10px #d6b46b30}
+.golden-video-versions button:focus-visible,.golden-video-quality select:focus-visible{outline:2px solid #d9b874;outline-offset:4px}
+.golden-video-quality{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0;font-size:.875rem}
+.golden-video-quality select{min-height:44px;max-width:100%;padding:8px;background:#151515;color:#fff;border:1px solid #666;border-radius:8px;font:inherit}
+
+.golden-song-notes .golden-song-heading{font-family:inherit;font-size:clamp(1.35rem,2.4vw,1.8rem);font-weight:800;line-height:1.25;letter-spacing:-.02em;color:inherit;margin:28px 0 10px}
+.golden-song-notes .golden-song-heading+p{margin-top:0}
+.golden-video-card>h3,.gp-card>h3{font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;line-height:1.2}

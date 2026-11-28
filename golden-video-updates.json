@@ -1,22 +1,79 @@
 {
   "site": "goldenrama440",
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "videos": [
+    {
+      "id": "golden-rama-video-06",
+      "title": "Code of The Regime",
+      "artist": "Golden Rama",
+      "src": "assets/updates/2026-11-25/golden-rama-video-06.mp4?v=20261126",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-06.jpg?v=20261126",
+      "duration": 219.39,
+      "hls": "assets/updates/2026-11-26/golden-rama-video-06-original/master.m3u8",
+      "description": [
+        "Loyalty sits at the center of Code of The Regime. Golden Rama connects ambition, money and the people beside him, giving the song a clear sense of collective identity. Its confidence comes with an expectation: success means little if the circle breaks when circumstances change.",
+        "The video carries that attitude through night drives, sharp styling, luxury cars and scenes of celebration. Those polished images sit beside the recording’s harder language, creating a tension between enjoying the rewards and guarding the position that made them possible. Appearance matters here, but allegiance is the stronger statement.",
+        "Within Golden Rama’s wider creative world, this is a forceful introduction to the 440 identity. The recurring emphasis on the team gives the title its meaning and keeps the record focused beyond its displays of wealth. The code is a standard of belonging: remember your people, know what you stand for, and carry that identity wherever you go."
+      ],
+      "descriptionAuthor": "Dwayne Vidal — Author",
+      "descriptionHeadings": [
+        "The Code Is Loyalty",
+        "Ambition After Dark",
+        "Carrying the 440 Identity"
+      ],
+      "versions": [
+        {
+          "id": "original",
+          "label": "Original",
+          "src": "assets/updates/2026-11-25/golden-rama-video-06.mp4?v=20261126",
+          "hls": "assets/updates/2026-11-26/golden-rama-video-06-original/master.m3u8"
+        },
+        {
+          "id": "clean",
+          "label": "Clean",
+          "src": "assets/updates/2026-11-26/golden-rama-video-06-clean.mp4",
+          "hls": "assets/updates/2026-11-26/golden-rama-video-06-clean/master.m3u8"
+        }
+      ]
+    },
     {
       "id": "golden-rama-video-01",
       "title": "Mi Nuh Know Yu Ft Alqual",
       "artist": "Golden Rama",
-      "src": "assets/updates/2026-11-25/golden-rama-video-01.mp4",
-      "poster": "assets/updates/2026-11-25/golden-rama-video-01.jpg",
-      "duration": 180.91
+      "src": "assets/updates/2026-11-25/golden-rama-video-01.mp4?v=20261126",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-01.jpg?v=20261126",
+      "duration": 180.95,
+      "description": [
+        "Mi Nuh Know Yu brings Golden Rama and Alqual together around a blunt, memorable refusal to accept unwanted familiarity. The song turns an everyday encounter into a playful confrontation, using questions, character and attitude to establish a boundary. Its humor comes from how firmly that boundary is repeated.",
+        "The opening dialogue and later exchanges give the recording a theatrical quality. In the video, neighborhood streets, group performances and a wall of portraits keep the presentation close to people and public space. The result feels like a conversation that has become a performance, with personality doing as much work as the central refrain.",
+        "Alqual’s featured credit belongs visibly beside Golden Rama’s, as part of the identity of this collaboration. Returning to the song is also a way of keeping that contribution present for listeners discovering it now. Music gives a voice somewhere to remain: in the recording, in shared memories, and in the people who continue to press play."
+      ],
+      "descriptionAuthor": "Dwayne Vidal — Author",
+      "dedication": "Rest in peace, Alqual. Gone but not forgotten. Legends never die.",
+      "descriptionHeadings": [
+        "A Boundary With Personality",
+        "Street Scenes and Character",
+        "Alqual’s Voice Lives On"
+      ]
     },
     {
       "id": "golden-rama-video-02",
       "title": "Keep It Goin Ft Malka Family",
       "artist": "Golden Rama",
-      "src": "assets/updates/2026-11-25/golden-rama-video-02.mp4",
-      "poster": "assets/updates/2026-11-25/golden-rama-video-02.jpg",
-      "duration": 206.55
+      "src": "assets/updates/2026-11-25/golden-rama-video-02.mp4?v=20261126",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-02.jpg?v=20261126",
+      "duration": 206.6,
+      "description": [
+        "Keep It Goin brings Golden Rama together with Malka Family in a collaboration built around movement and an invitation to stay in the moment. The repeated idea of keeping things going works naturally as a dance-floor call, giving the record a communal spirit that suits a room full of people responding together.",
+        "The video uses stark black-and-white portraits and graphic contrast to make performance the visual focus. With the background stripped back, faces, gestures and attitude carry the image. That direct presentation fits a song whose central appeal is participation: catch the refrain, find the movement, and become part of the atmosphere.",
+        "The Malka Family feature deserves a clear place in the title because collaboration is part of the record’s character. Within Golden Rama’s catalog, this release offers a welcome sense of shared celebration. Its staying power rests in a simple pleasure: a performance that gives the audience an easy way to join in."
+      ],
+      "descriptionAuthor": "Dwayne Vidal — Author",
+      "descriptionHeadings": [
+        "Keep the Celebration Moving",
+        "Performance in Black and White",
+        "The Power of Collaboration"
+      ]
     },
     {
       "id": "golden-rama-video-03",
@@ -24,7 +81,18 @@
       "artist": "Golden Rama",
       "src": "assets/updates/2026-11-25/golden-rama-video-03.mp4",
       "poster": "assets/updates/2026-11-25/golden-rama-video-03.jpg",
-      "duration": 168.31
+      "duration": 168.31,
+      "description": [
+        "Fuck Tonight presents the adult, flirtatious side of Golden Rama’s catalog without disguising its intentions. The title announces the mood immediately, while the repeated refrain gives that mood a direct, easily recognized center. This is a performance of confidence and desire, delivered with the boldness the name promises.",
+        "The video builds an evening setting around studio interiors, a candlelit table, city lights and a luxury car. Its polished, stylized images frame the recording as a night out, moving between the artist’s creative space and scenes of glamour. The atmosphere is intimate in scale but deliberately larger than ordinary life.",
+        "Seen beside Golden Rama’s harder records and more reflective titles, this release adds another shade to his public identity. It places charisma and adult attraction at the front of the performance. The appeal is in the combination of a forceful refrain, a confident persona and a visual world arranged around the excitement of the night."
+      ],
+      "descriptionAuthor": "Dwayne Vidal — Author",
+      "descriptionHeadings": [
+        "Confidence After Dark",
+        "A Night in Golden Rama’s World",
+        "The Charisma of the Performance"
+      ]
     },
     {
       "id": "golden-rama-video-04",
@@ -32,31 +100,56 @@
       "artist": "Golden Rama",
       "src": "assets/updates/2026-11-25/golden-rama-video-04.mp4",
       "poster": "assets/updates/2026-11-25/golden-rama-video-04.jpg",
-      "duration": 149.07
+      "duration": 149.07,
+      "description": [
+        "Polly steps into an unconventional love story, with Golden Rama’s narrator presenting affection that does not fit the usual picture of a couple. The performance mixes romantic confidence with teasing wordplay, inviting the listener into a character’s account of shared attention, pleasure and the complications of desire.",
+        "The video gives that story a carefully styled setting: evening clothes, warm interior lighting, a pool overlooking the water and an expansive sunset. Its images build a fantasy of comfort and abundance around the people at the center. The presentation lets the romance feel cinematic without requiring the viewer to mistake the story for a biography.",
+        "Golden Rama’s catalog makes room for different voices and moods, and Polly belongs to its playful, adult side. The song’s interest comes from the narrator’s certainty and the unusual arrangement he describes. It is a character-driven performance that keeps its central relationship in view while letting personality and atmosphere carry the scene."
+      ],
+      "descriptionAuthor": "Dwayne Vidal — Author",
+      "descriptionHeadings": [
+        "Love Beyond Convention",
+        "A Romance in Warm Light",
+        "A Different Kind of Love Story"
+      ]
     },
     {
       "id": "golden-rama-video-05",
       "title": "Taken",
       "artist": "Golden Rama",
-      "src": "assets/updates/2026-11-25/golden-rama-video-05.mp4",
-      "poster": "assets/updates/2026-11-25/golden-rama-video-05.jpg",
-      "duration": 211.27
-    },
-    {
-      "id": "golden-rama-video-06",
-      "title": "Code of The Regime",
-      "artist": "Golden Rama",
-      "src": "assets/updates/2026-11-25/golden-rama-video-06.mp4",
-      "poster": "assets/updates/2026-11-25/golden-rama-video-06.jpg",
-      "duration": 219.39
+      "src": "assets/updates/2026-11-25/golden-rama-video-05.mp4?v=20261126",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-05.jpg?v=20261126",
+      "duration": 211.32,
+      "description": [
+        "Taken turns attraction into a question of boundaries. Golden Rama’s narrator is drawn toward someone who already has a partner, and the refrain keeps bringing that fact back into the conversation. Desire is present, but so is doubt about what either person can honestly promise.",
+        "The exchanges in the song give it more shape than a straightforward declaration of love. One person imagines a deeper connection while the other questions the situation and the expectations attached to it. The night-time performance scenes and close views in the video keep the emphasis on that intimate, unsettled conversation.",
+        "The strength of Taken is the tension between wanting the moment and recognizing its complications. Golden Rama allows confidence, attraction and hesitation to occupy the same record. That emotional friction gives listeners something to return to: a relationship story in which the clearest fact is also the hardest one for the characters to ignore."
+      ],
+      "descriptionAuthor": "Dwayne Vidal — Author",
+      "descriptionHeadings": [
+        "Attraction Meets a Boundary",
+        "The Conversation Behind the Desire",
+        "Wanting More, Knowing the Stakes"
+      ]
     },
     {
       "id": "golden-rama-video-07",
       "title": "Everything Inna Place",
       "artist": "Golden Rama",
-      "src": "assets/updates/2026-11-25/golden-rama-video-07.mp4",
-      "poster": "assets/updates/2026-11-25/golden-rama-video-07.jpg",
-      "duration": 175.34
+      "src": "assets/updates/2026-11-25/golden-rama-video-07.mp4?v=20261126",
+      "poster": "assets/updates/2026-11-25/golden-rama-video-07.jpg?v=20261126",
+      "duration": 175.34,
+      "description": [
+        "Everything Inna Place gives Golden Rama’s faith a central place in the music. The song returns to gratitude, trust in Jah and the decision to put spiritual belief before the next step. Its message is especially meaningful when set against everyday difficulty: giving thanks is presented as a practice, not something reserved for easy times.",
+        "The waterfront setting gives the video room to breathe. Open sky, sea and direct performance create a quieter visual world than the night-time luxury of some of the other releases. That space suits a recording concerned with perspective, allowing the words of praise and reassurance to remain at the center.",
+        "This is an important part of Golden Rama’s range. Alongside the bold characters, party records and confrontational titles, there is a voice willing to express dependence, gratitude and hope. Everything Inna Place brings those qualities forward and offers listeners a simple point of connection: acknowledge the struggle, keep the faith, and be thankful for another day."
+      ],
+      "descriptionAuthor": "Dwayne Vidal — Author",
+      "descriptionHeadings": [
+        "Faith at the Center",
+        "Room to Breathe",
+        "Gratitude Within the Journey"
+      ]
     }
   ]
 }

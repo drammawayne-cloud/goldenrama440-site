@@ -18,8 +18,9 @@ async function renderPage(p){const fragment=document.createDocumentFragment();le
  if(fragment.childNodes.length)content.replaceChildren(fragment);await loadCatalog();
 }
 window.RR_STUDIO_PAGE=async p=>{await renderPage(p);};
-async function load(){try{const r=await fetch(base+'/api/addon/page?slug='+encodeURIComponent(site),{credentials:'omit',cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('unavailable');const p=await r.json();if(!Array.isArray(p.blocks))throw Error('invalid');await renderPage(p);window.dispatchEvent(new Event('rr:page-ready'));
- }catch{await loadCatalog();window.dispatchEvent(new Event('rr:page-ready'));}}
+function pageReady(){document.documentElement.dataset.goldenPageReady='1';window.dispatchEvent(new Event('rr:page-ready'));}
+async function load(){try{const r=await fetch(base+'/api/addon/page?slug='+encodeURIComponent(site),{credentials:'omit',cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('unavailable');const p=await r.json();if(!Array.isArray(p.blocks))throw Error('invalid');await renderPage(p);pageReady();
+ }catch{await loadCatalog();pageReady();}}
 
 
 // Public catalog access; database policies allow published records only.

@@ -16,9 +16,9 @@ test('all seven supplied videos have unique, usable local files and thumbnails',
     for (const asset of [video.src, video.poster]) {
       assert.ok(!asset.includes('..'));
       assert.ok(asset.startsWith('assets/updates/2026-11-25/'));
-      assert.ok(fs.statSync(path.join(root, asset)).size > 1000);
+      assert.ok(fs.statSync(path.join(root, asset.split('?')[0])).size > 1000);
     }
-    const jpeg = fs.readFileSync(path.join(root, video.poster));
+    const jpeg = fs.readFileSync(path.join(root, video.poster.split('?')[0]));
     assert.equal(jpeg.readUInt16BE(0), 0xffd8);
     assert.equal(jpeg.readUInt16BE(jpeg.length - 2), 0xffd9);
   }
@@ -26,7 +26,7 @@ test('all seven supplied videos have unique, usable local files and thumbnails',
 
 test('each MP4 puts playback metadata ahead of media for progressive playback', () => {
   for (const video of collection.videos) {
-    const file = fs.readFileSync(path.join(root, video.src));
+    const file = fs.readFileSync(path.join(root, video.src.split('?')[0]));
     const atoms = [];
     for (let offset = 0; offset < file.length;) {
       assert.ok(offset + 8 <= file.length, video.src + ': incomplete MP4 atom');

@@ -20,3 +20,5 @@
 .golden-cart-upsell{padding:12px 20px;text-align:center}
 .golden-buy-actions button:focus-visible,.golden-bundle-dialog button:focus-visible,
 .golden-bundle-dialog input:focus-visible,.golden-bundle-dialog select:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+.golden-buy-actions .golden-member-access{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;box-sizing:border-box;border:1px solid currentColor;border-radius:4px;font-weight:700}

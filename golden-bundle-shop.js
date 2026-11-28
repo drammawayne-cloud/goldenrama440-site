@@ -5,7 +5,8 @@ const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).
 const key=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
 const main=document.querySelector('main');
 const music=new Map();
-let merch=[];
+let merch=[], inventoryReady=false;
+const members=new Set();
 if(!main)throw Error('Music store needs a page');
 
 const dialog=document.createElement('dialog');
@@ -77,12 +78,17 @@ function showClothing(){
  dialog.showModal();
 }
 function decorate(){
+ if(!inventoryReady)return;
  for(const card of main.querySelectorAll('#music .catalog-card,#catalog-tracks article')){
   if(card.dataset.goldenShop==='1')continue;
   const title=card.querySelector('h3')?.textContent||'';
   const product=music.get(key(title));
   const area=make('div');area.className='golden-buy-actions';
-  const button=make('button',product?'Add song to cart · '+money(product.price_cents):'Song purchase coming soon');
+  if(members.has(key(title))){
+   const memberLink=make('a','Listen with membership ↗');memberLink.href='/account.html';memberLink.className='golden-member-access';
+   const plans=make('a','View membership');plans.href='/membership.html';area.append(memberLink,plans);card.append(area);card.dataset.goldenShop='1';continue;
+  }
+  const button=make('button',product?'Add song to cart · '+money(product.price_cents):'Purchases temporarily unavailable');
   button.type='button';
   button.disabled=!product;
   if(product)button.addEventListener('click',async()=>{
@@ -114,7 +120,9 @@ if(cartPage){
  const header=make('section');header.className='golden-cart-upsell';header.append(addClothing);
  main.before(header);
 }
-Promise.allSettled([api('catalog?site='+SITE),api('merch-catalog')]).then(([a,b])=>{
+Promise.allSettled([api('catalog?site='+SITE),api('merch-catalog'),fetch('/golden-stream-only.json').then(r=>{if(!r.ok)throw Error('Member catalog unavailable');return r.json();})]).then(([a,b,c])=>{
+ if(c.status==='fulfilled'&&Array.isArray(c.value.titles))for(const title of c.value.titles)members.add(key(title));
+ inventoryReady=true;
  if(a.status==='fulfilled'&&Array.isArray(a.value)){
   for(const p of a.value)if(p.site===SITE&&p.published===true&&p.product_type==='music'&&
    /^[0-9a-f-]{36}$/i.test(p.id||''))music.set(key(p.title),p);

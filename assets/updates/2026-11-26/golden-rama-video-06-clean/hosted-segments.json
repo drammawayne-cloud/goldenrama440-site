@@ -1,0 +1,157 @@
+{
+  "verifiedOn": "2026-11-28",
+  "segments": {
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-019.mp4": {
+      "bytes": 12030439,
+      "sha256": "d674aaf2f79f16c87de2dbd67d4565f9294c8fc164ac2968ab4f6d7be237b11d"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-025.mp4": {
+      "bytes": 15912860,
+      "sha256": "9122e615ad5b31090c0c552d7628524a60c72c04b506cfadd6aa2d5853e683a1"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-031.mp4": {
+      "bytes": 14955584,
+      "sha256": "93ddaae0b855b825e6df6aa2e35bd504fbbf171b4d64e06c458b4895cb874ba1"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-030.mp4": {
+      "bytes": 16164081,
+      "sha256": "54d84cfc7bc97e482bcd2feab0560aad4bcf341804176000ac0f654d119f527d"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-024.mp4": {
+      "bytes": 11574694,
+      "sha256": "b3a4e65ab15967651baf61fffb2ed31149bbb4b05106a83db5bbb2b6d73fb5a1"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-018.mp4": {
+      "bytes": 12284709,
+      "sha256": "93122c75150310a1595fc1a3922f7cb2698cfbc64d380655685f44ae9addef19"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-032.mp4": {
+      "bytes": 16474484,
+      "sha256": "2c607c4cd1fa0637701ae8ad0482f4b9d98d1588697ba1ddc55127961bf7d474"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-026.mp4": {
+      "bytes": 15576634,
+      "sha256": "e9b26a213e81b37c4c7262950a7661329569cd53931b69cecfeda45883d9814b"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-027.mp4": {
+      "bytes": 15142306,
+      "sha256": "92d160c38f563519cfaaf994c2de28e78b82910ec01bb80c391affa13918fbf3"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-033.mp4": {
+      "bytes": 16101574,
+      "sha256": "6bdf1adbe309a6ea8bc1e0dc6c37fdb315cf6d1e58392d7a1a9b81e5c8a2e235"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-023.mp4": {
+      "bytes": 16621638,
+      "sha256": "2d31033407b1b171cfe8f7e97dc7cb29666c9f099bbb3b25180df2e28687b50e"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-022.mp4": {
+      "bytes": 15860920,
+      "sha256": "9cba4a5d69cf4d398aa9a71ffe9e98e4c29566c44fef550cc353de43519f6a58"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-036.mp4": {
+      "bytes": 383006,
+      "sha256": "8f10bd1bbe9819654313c30e096099b00bc2899486252deddeffe28982435073"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-020.mp4": {
+      "bytes": 17466618,
+      "sha256": "040e205a9303680b703fe8c1d83b8a5049d8b3076dbcf9907edb19ef16e2e21e"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-034.mp4": {
+      "bytes": 12804487,
+      "sha256": "089a8a26c0e0c65daf7afcb9332470bca2072c1cf0b4f5353c698b8b10017f9f"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-008.mp4": {
+      "bytes": 16563979,
+      "sha256": "7f26d4448b6847567ea5d7eacfc0ff9d4815e1a1ed8bc06b44874042cff21a47"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-009.mp4": {
+      "bytes": 10980785,
+      "sha256": "a79d6b585fae30c70dc0b5ae73c07f01d323d60842fc9dfa3553f5c647385b0c"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-035.mp4": {
+      "bytes": 15707062,
+      "sha256": "5e94bfa80caaee232a2ff186f57a10c47ecc154d939e2b8dc5a084c7cbe1de76"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-021.mp4": {
+      "bytes": 17059099,
+      "sha256": "1aeafd696df617d8e11799d301b3867df7db8a621dfd3152908a732ecd1a0627"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-init.mp4": {
+      "bytes": 1374,
+      "sha256": "463b474a81e0d96ccbdf9d729b3a3daceb9435b2659180dbfb1b6a9206da72a8"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-004.mp4": {
+      "bytes": 11463969,
+      "sha256": "6e26eeed5887492ea09a78f5f142989be3b69c737cba40a22612607a24bbf9ab"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-010.mp4": {
+      "bytes": 14702129,
+      "sha256": "c1b15a31c117454f5af2942326478429b5bcf7ef23f2f7a08225dbb2c7300721"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-011.mp4": {
+      "bytes": 18448508,
+      "sha256": "0dc3aa30c961ff4e37862468e585fdf189253392dc9bc3108843b47ba9050cac"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-005.mp4": {
+      "bytes": 16512192,
+      "sha256": "178d87e10e9851605025b9911715778c44340ba25aa19bd6b97d14c6fa31416b"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-013.mp4": {
+      "bytes": 14549496,
+      "sha256": "720c1748451d07423305fa014306e84b59879d2dd0f3b5a00ad8e7e8c5ecc48e"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-007.mp4": {
+      "bytes": 18160815,
+      "sha256": "8d24c1329c3fdc098e51d60943d9169e57e1029c62f70bc5ecd2d5e03d4edcde"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-006.mp4": {
+      "bytes": 13120010,
+      "sha256": "48a1b51a7ea3341e485585bd0a69144c210fb78121c0cad0da24714ed2f42462"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-012.mp4": {
+      "bytes": 13496037,
+      "sha256": "8354b048056f5cdcdd4238de3f55d4163dffd5228a72f74f9885ab13d54aa3ac"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-016.mp4": {
+      "bytes": 15622748,
+      "sha256": "36183efeb60530fd0c092b0f0dc4943f3515a037d611189f7c5294beb2132559"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-002.mp4": {
+      "bytes": 13340681,
+      "sha256": "1791caf5324ca55db4d4b511d8bc31b64b60a6c2d93a0fadd02f4f5225859701"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-003.mp4": {
+      "bytes": 16920095,
+      "sha256": "d14dea301b116c091fe87534ef82dbe028317cd092adb8f5cbf2e4bf3306f36e"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-017.mp4": {
+      "bytes": 16801474,
+      "sha256": "8b7d4b4a2aa2b1a52fcae675d9fd6fee1661376939d1ed78cb05a25249265e30"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-001.mp4": {
+      "bytes": 15766380,
+      "sha256": "ca2db84b7d7cded4b1fcb219cadf0440610964821a9462ad279b0486b1072747"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-015.mp4": {
+      "bytes": 18344524,
+      "sha256": "f50fd71f338730fc4c7213e7f3dd26459451125c55a30b98416a10af05513d56"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-029.mp4": {
+      "bytes": 12429783,
+      "sha256": "c2c15af961707be45b6ff79357cab27d413cefd657d7999e6dd0dfa345444e7f"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-028.mp4": {
+      "bytes": 16234453,
+      "sha256": "b93bc17bb99a1939d095f236adc6af5d36c3fe25521088bff69363149d722e7e"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-014.mp4": {
+      "bytes": 12024758,
+      "sha256": "1103472c9bcb380ee8300bfbcbdd76b09446900b3250c2a4b0ad1383dfa382d4"
+    },
+    "https://vajjwfxbbncqzrdbbvgu.supabase.co/storage/v1/object/public/rr-addon-public/goldenrama-hd-20261126/clean-1080-000.mp4": {
+      "bytes": 13144658,
+      "sha256": "b1ac121cbd6a8aa963c54172b4c99e88500b479353459e57ab8be51be3ccd8a2"
+    }
+  }
+}

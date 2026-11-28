@@ -18,7 +18,7 @@
     const head = make('div', 'golden-music-browser-head');
     head.append(make('h3', '', 'Browse Golden Rama music'),
       make('p', '', 'Free public song previews. No membership needed. Purchase options appear as releases become available.'));
-    const link = make('a', 'action', 'Browse all 51 tracks ↗');
+    const link = make('a', 'action', 'Browse all ' + tracks.length + ' tracks ↗');
     link.href = 'catalog.html';
     head.append(link);
     const grid = make('div', 'golden-music-browser-grid');
@@ -44,11 +44,11 @@
     };
     draw();
     panel.append(head, grid);
-    const more = make('button', 'golden-music-more', 'Show all 51 tracks');
+    const more = make('button', 'golden-music-more', 'Show all ' + tracks.length + ' tracks');
     more.type = 'button';
     more.addEventListener('click', () => {
       expanded = !expanded;
-      more.textContent = expanded ? 'Show fewer tracks' : 'Show all 51 tracks';
+      more.textContent = expanded ? 'Show fewer tracks' : 'Show all ' + tracks.length + ' tracks';
       draw();
     });
     panel.append(more);
